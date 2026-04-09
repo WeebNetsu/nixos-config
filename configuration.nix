@@ -2,6 +2,7 @@
   config,
   pkgs,
   nixpkgs,
+  #   inputs,
   ...
 }:
 
@@ -12,6 +13,7 @@ in
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    # inputs.hyprland.nixosModules.default
   ];
 
   # Bootloader.
@@ -109,7 +111,21 @@ in
   services.mullvad-vpn.enable = true;
 
   # Hyprland WM
-  programs.hyprland.enable = true;
+
+  programs.hyprland = {
+    enable = true;
+    # Use the package from the flake
+    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+
+    # # Add your plugins here!
+    # plugins = [
+    #   # For HyprExpo (Official plugin)
+    #   inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
+    #   # For HyprGlass (Third party)
+    #   inputs.hyprglass.packages.${pkgs.stdenv.hostPlatform.system}.default
+    # ];
+  };
+
   # Optional, hint Electron apps to use Wayland:
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
@@ -183,6 +199,7 @@ in
     lmstudio
     cmake
     hyprlauncher
+    # hyprlandPlugins.hyprexpo
 
     # meteor # too old, like version 2 instead of 3
 
