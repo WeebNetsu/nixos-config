@@ -2,7 +2,8 @@
   config,
   pkgs,
   nixpkgs,
-  #   inputs,
+  hyprland,
+  hypr-plugins,
   ...
 }:
 
@@ -115,15 +116,12 @@ in
   programs.hyprland = {
     enable = true;
     # Use the package from the flake
-    # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 
-    # # Add your plugins here!
-    # plugins = [
-    #   # For HyprExpo (Official plugin)
-    #   inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprexpo
-    #   # For HyprGlass (Third party)
-    #   inputs.hyprglass.packages.${pkgs.stdenv.hostPlatform.system}.default
-    # ];
+    # Use the plugin from the same flake source
+    plugins = [
+      hypr-plugins.packages.${pkgs.system}.hyprscrolling
+    ];
   };
 
   # Optional, hint Electron apps to use Wayland:
@@ -200,6 +198,7 @@ in
     cmake
     hyprlauncher
     # hyprlandPlugins.hyprexpo
+    # hyprlandPlugins.hyprscrolling
 
     # meteor # too old, like version 2 instead of 3
 
