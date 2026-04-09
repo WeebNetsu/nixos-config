@@ -37,7 +37,14 @@ in
   # Add open source nvidia drivers
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.open = true;
+  #   hardware.nvidia.open = true;
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = true; # Since you're using the open-source modules
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
 
   # Enable the XFCE Desktop Environment.
   services.xserver.displayManager.lightdm.enable = true;
@@ -101,6 +108,33 @@ in
   # vpn
   services.mullvad-vpn.enable = true;
 
+  # Hyprland WM
+  programs.hyprland.enable = true;
+  # Optional, hint Electron apps to use Wayland:
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+
+    # all below required for hyprland
+    LIBVA_DRIVER_NAME = "nvidia";
+    XDG_SESSION_TYPE = "wayland";
+    GBM_BACKEND = "nvidia-drm";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    WLR_NO_HARDWARE_CURSORS = "1";
+  };
+
+  # fix theming issues
+  programs.dconf.profiles.user.databases = [
+    {
+      settings."org/gnome/desktop/interface" = {
+        gtk-theme = "Adwaita";
+        icon-theme = "Flat-Remix-Red-Dark";
+        font-name = "Noto Sans Medium 11";
+        document-font-name = "Noto Sans Medium 11";
+        monospace-font-name = "Noto Sans Mono Medium 11";
+      };
+    }
+  ];
+
   # obs with droidcam
   programs.obs-studio = {
     enable = true;
@@ -124,7 +158,6 @@ in
     telegram-desktop
     os-prober
     htop
-    # nvtopPackages.v3d # does not detect gpu?
     nvtopPackages.nvidia
     flameshot
     git
@@ -144,6 +177,11 @@ in
     brasero
     warpinator
     scrcpy
+    kitty # default hyprland terminal
+    xdg-desktop-portal-hyprland # required by hyprland
+    ncdu
+    lmstudio
+    cmake
 
     # meteor # too old, like version 2 instead of 3
 
@@ -177,5 +215,4 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
-
 }
