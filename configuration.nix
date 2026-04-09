@@ -28,6 +28,11 @@ in
 
   networking.hostName = "nixos"; # Define your hostname.
 
+  environment.variables = {
+    GTK_THEME = "Adwaita-dark";
+    # QT_QPA_PLATFORMTHEME = "qt5ct"; # Or qt6ct
+  };
+
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -197,6 +202,8 @@ in
     lmstudio
     cmake
     hyprlauncher
+    hyprpaper # wallpapers on hyprland
+    nemo
     # hyprlandPlugins.hyprexpo
     # hyprlandPlugins.hyprscrolling
 
