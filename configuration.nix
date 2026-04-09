@@ -182,6 +182,7 @@ in
     ncdu
     lmstudio
     cmake
+    hyprlauncher
 
     # meteor # too old, like version 2 instead of 3
 
