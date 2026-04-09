@@ -178,7 +178,8 @@ in
     os-prober
     htop
     nvtopPackages.nvidia
-    flameshot
+    # flameshot
+    gscreenshot
     git
     discord
     nixfmt # format nix code
@@ -203,6 +204,7 @@ in
     cmake
     hyprlauncher
     hyprpaper # wallpapers on hyprland
+    waybar
     nemo
     # hyprlandPlugins.hyprexpo
     # hyprlandPlugins.hyprscrolling
