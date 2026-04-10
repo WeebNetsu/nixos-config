@@ -33,6 +33,34 @@ in
     # QT_QPA_PLATFORMTHEME = "qt5ct"; # Or qt6ct
   };
 
+  # auto mount my 2 other drives
+  fileSystems."/mnt/shared" = {
+    device = "/dev/disk/by-uuid/2C6D80782C1495DF";
+    fsType = "ntfs";
+    options = [
+      "defaults"
+      "nofail" # 'nofail' prevents boot loops if the drive is missing
+    ];
+  };
+
+  fileSystems."/mnt/linux-mint" = {
+    device = "/dev/disk/by-uuid/185ea12c-8c2a-45a3-9d07-01ecd7b93657";
+    fsType = "ext4";
+    options = [
+      "defaults"
+      "nofail"
+    ];
+  };
+
+  # give me permission on the drives
+  #   system.activationScripts.fix-drive-permissions = {
+  #     text = ''
+  #       chown -R netsu:users /mnt/shared
+  #       chown -R netsu:users /mnt/linux-mint
+  #     '';
+  #     deps = [ ];
+  #   };
+
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -169,7 +197,6 @@ in
     vscode
     brave
     fastfetch
-    # sublime4 # sublime text
     mongodb-compass
     nodejs_20
     curl
@@ -197,7 +224,6 @@ in
     brasero
     warpinator
     scrcpy
-    kitty # default hyprland terminal
     xdg-desktop-portal-hyprland # required by hyprland
     ncdu
     lmstudio
@@ -206,9 +232,8 @@ in
     hyprpaper # wallpapers on hyprland
     waybar
     nemo
-    # hyprlandPlugins.hyprexpo
-    # hyprlandPlugins.hyprscrolling
-
+    # kdePackages.dolphin
+    lite-xl # sublime text alt
     # meteor # too old, like version 2 instead of 3
 
     # unstable packages
