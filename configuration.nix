@@ -26,6 +26,11 @@ in
   boot.loader.grub.efiSupport = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # fix my f-keys
+  boot.extraModprobeConfig = ''
+    options hid_apple fnmode=2
+  '';
+
   networking.hostName = "nixos"; # Define your hostname.
 
   environment.variables = {
