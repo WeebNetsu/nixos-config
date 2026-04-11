@@ -233,13 +233,16 @@ in
     ncdu
     lmstudio
     cmake
-    hyprlauncher
     hyprpaper # wallpapers on hyprland
     waybar
     nemo
-    # kdePackages.dolphin
     lite-xl # sublime text alt
     # meteor # too old, like version 2 instead of 3
+    qbittorrent
+    element-desktop
+    libreoffice
+    gnome-calculator
+    rofi
 
     # unstable packages
     unstable.fresh-editor
