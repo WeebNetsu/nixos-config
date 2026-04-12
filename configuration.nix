@@ -75,6 +75,9 @@ in
   # Select internationalization properties.
   i18n.defaultLocale = "en_ZA.UTF-8";
 
+  # enable docker
+  virtualisation.docker.enable = true;
+
   # Add open source nvidia drivers
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -125,10 +128,17 @@ in
       "wheel"
       "video"
       "render"
+      "docker"
     ];
     packages = with pkgs; [
       #  thunderbird
     ];
+  };
+
+  zramSwap = {
+    enable = true;
+    memoryMax = 2 * 1024 * 1024 * 1024; # 2GB in bytes
+    algorithm = "zstd";
   };
 
   nix.settings.experimental-features = [
@@ -243,6 +253,8 @@ in
     libreoffice
     gnome-calculator
     rofi
+    unciv
+    distrobox
 
     # unstable packages
     unstable.fresh-editor
