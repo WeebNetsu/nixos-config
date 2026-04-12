@@ -119,6 +119,9 @@ in
     #media-session.enable = true;
   };
 
+  # other services
+  services.playerctld.enable = true; # play pause from anywhere support
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.netsu = {
     isNormalUser = true;
@@ -131,7 +134,44 @@ in
       "docker"
     ];
     packages = with pkgs; [
-      #  thunderbird
+      vscode
+      brave
+      mongodb-compass
+      nodejs_20
+      slack
+      telegram-desktop
+      discord
+      handbrake
+      sqlitebrowser
+      audacity
+      megasync
+      hoppscotch
+      vivaldi
+      brasero
+      warpinator
+      scrcpy
+      lmstudio
+      nemo
+      lite-xl # sublime text alt
+      # meteor # too old, like version 2 instead of 3
+      qbittorrent
+      element-desktop
+      libreoffice
+      gnome-calculator
+      unciv
+
+      #development
+      distrobox
+      flutter
+      #   dart
+      rust-analyzer
+      rustc
+      cargo
+      gcc
+      python315
+
+      # unstable packages
+      unstable.fresh-editor
     ];
   };
 
@@ -148,6 +188,17 @@ in
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  # fixes some meteorjs issues when installed with curl
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      #   stdenv.cc.cc
+      #   zlib
+      #   curl
+      #   openssl
+    ];
+  };
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -209,55 +260,26 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim
-    vscode
-    brave
     fastfetch
-    mongodb-compass
-    nodejs_20
     curl
-    slack
-    telegram-desktop
     os-prober
     htop
     nvtopPackages.nvidia
     # flameshot
     gscreenshot
     git
-    discord
     nixfmt # format nix code
     trash-cli
     tldr
     speedtest-cli
     mpv
-    handbrake
-    sqlitebrowser
-    libreoffice
-    audacity
-    megasync
-    hoppscotch
-    vivaldi
-    brasero
-    warpinator
-    scrcpy
     xdg-desktop-portal-hyprland # required by hyprland
     ncdu
-    lmstudio
     cmake
     hyprpaper # wallpapers on hyprland
     waybar
-    nemo
-    lite-xl # sublime text alt
-    # meteor # too old, like version 2 instead of 3
-    qbittorrent
-    element-desktop
-    libreoffice
-    gnome-calculator
     rofi
-    unciv
-    distrobox
-
-    # unstable packages
-    unstable.fresh-editor
+    unzip
   ];
 
   # Enable the OpenSSH daemon.
