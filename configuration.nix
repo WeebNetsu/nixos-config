@@ -14,6 +14,7 @@ in
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    # <home-manager/nixos>
     # inputs.hyprland.nixosModules.default
   ];
 
@@ -137,14 +138,14 @@ in
       vscode
       brave
       mongodb-compass
-      nodejs_20
       slack
       telegram-desktop
       discord
       handbrake
       sqlitebrowser
       audacity
-      megasync
+      # megasync
+      # megacmd
       hoppscotch
       vivaldi
       brasero
@@ -158,17 +159,27 @@ in
       element-desktop
       libreoffice
       gnome-calculator
-      unciv
+      # polybar
+      # cava
+      flameshot
+      grim # required by flameshot on wayland systems
 
       #development
-      distrobox
+      opencode
+      nodejs_20
+      # distrobox
       flutter
-      #   dart
+      # dart
       rust-analyzer
       rustc
       cargo
       gcc
       python315
+      nimble
+      nim
+
+      # games
+      unciv
 
       # unstable packages
       unstable.fresh-editor
@@ -265,8 +276,6 @@ in
     os-prober
     htop
     nvtopPackages.nvidia
-    # flameshot
-    gscreenshot
     git
     nixfmt # format nix code
     trash-cli
@@ -294,6 +303,13 @@ in
   services.flatpak.packages = [
     "com.actualbudget.actual"
   ];
+
+  #   home-manager = {
+  #     # extraSpecialArgs = { inherit inputs; };
+  #     users = {
+  #       "netsu" = import ./home.nix;
+  #     };
+  #   };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

@@ -165,6 +165,26 @@
         "type": "github"
       }
     },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1775983377,
+        "narHash": "sha256-ZeRjipGQnVtQ/6batI+yVOrL853FZsL0m9A63OaSfgM=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "e0ca734ffc85d25297715e98010b93303fa165c4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "hypr-plugins": {
       "inputs": {
         "hyprland": "hyprland",
@@ -977,6 +997,7 @@
     "root": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "home-manager": "home-manager",
         "hypr-plugins": "hypr-plugins",
         "hyprland": "hyprland_2",
         "nix-flatpak": "nix-flatpak",

@@ -7,6 +7,10 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=main";
     hyprland.url = "github:hyprwm/Hyprland"; # latest hyprland ver
     hypr-plugins.url = "github:hyprwm/hyprland-plugins";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -17,7 +21,12 @@
       nix-flatpak,
       hyprland,
       hypr-plugins,
+      home-manager,
     }:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -31,6 +40,16 @@
           inherit hyprland;
           inherit hypr-plugins;
         };
+      };
+      homeConfigurations."netsu" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        # Specify your home configuration modules here, for example,
+        # the path to your home.nix.
+        modules = [ ./home.nix ];
+
+        # Optionally use extraSpecialArgs
+        # to pass through arguments to home.nix
       };
     };
 }
