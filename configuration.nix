@@ -49,14 +49,14 @@ in
     ];
   };
 
-  fileSystems."/mnt/linux-mint" = {
-    device = "/dev/disk/by-uuid/185ea12c-8c2a-45a3-9d07-01ecd7b93657";
-    fsType = "ext4";
-    options = [
-      "defaults"
-      "nofail"
-    ];
-  };
+  #   fileSystems."/mnt/linux-mint" = {
+  #     device = "/dev/disk/by-uuid/185ea12c-8c2a-45a3-9d07-01ecd7b93657";
+  #     fsType = "ext4";
+  #     options = [
+  #       "defaults"
+  #       "nofail"
+  #     ];
+  #   };
 
   # give me permission on the drives
   #   system.activationScripts.fix-drive-permissions = {
@@ -90,6 +90,11 @@ in
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+
+  # enable mounting and unmounting external drives
+  #   services.udisks2.enable = true;
+  # This makes the NTFS helper available to udisks2 and the kernel
+  #   system.fsPackages = [ pkgs.ntfs3g ];
 
   # Enable the XFCE Desktop Environment.
   services.xserver.displayManager.lightdm.enable = true;
@@ -289,6 +294,9 @@ in
     waybar
     rofi
     unzip
+
+    # ntfs3g # For NTFS support
+    # exfat # For exFAT support
   ];
 
   # Enable the OpenSSH daemon.
