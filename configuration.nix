@@ -37,7 +37,9 @@ in
 
   environment.variables = {
     GTK_THEME = "Adwaita-dark";
-    # QT_QPA_PLATFORMTHEME = "qt5ct"; # Or qt6ct
+    # QT_QPA_PLATFORM = "wayland;xcb";
+    # This one is often the magic bullet for tray menus
+    # QT_QPA_PLATFORMTHEME = "qt5ct";
   };
 
   # auto mount my 2 other drives
