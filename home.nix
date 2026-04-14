@@ -77,6 +77,8 @@
     element-desktop
     libreoffice
     gnome-calculator
+    calc
+    liquidsoap
     # polybar
     # cava
     flameshot
@@ -95,6 +97,9 @@
     python315
     nimble
     nim
+    typescript
+    lua
+    love
 
     # games
     unciv
@@ -106,6 +111,17 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+    ".config/hypr/hyprland.conf".source =
+      config.lib.file.mkOutOfStoreSymlink /home/netsu/Documents/configs/hypr/hyprland.conf;
+    ".config/hypr/hyprpaper.conf".source =
+      config.lib.file.mkOutOfStoreSymlink /home/netsu/Documents/configs/hypr/hyprpaper.conf;
+    ".local/share/nemo/actions/open_xfce_terminal.nemo_action".source =
+      config.lib.file.mkOutOfStoreSymlink /home/netsu/Documents/configs/.local/share/nemo/actions/open_xfce_terminal.nemo_action;
+    ".config/flameshot/flameshot.ini".source =
+      config.lib.file.mkOutOfStoreSymlink /home/netsu/Documents/configs/flameshot/flameshot.ini;
+    ".config/waybar/config.jsonc".source =
+      config.lib.file.mkOutOfStoreSymlink /home/netsu/Documents/configs/waybar/config.jsonc;
+    ".bashrc".source = config.lib.file.mkOutOfStoreSymlink /home/netsu/Documents/configs/.bashrc;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
@@ -116,6 +132,10 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    # makes npm i -g work
+    ".npmrc".text = ''
+      prefix=~/.npm-global
+    '';
   };
 
   # Home Manager can also manage your environment variables through
@@ -135,6 +155,8 @@
   #  /etc/profiles/per-user/netsu/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
+    # makes npm i -g work
+    PATH = "$PATH:$HOME/.npm-global/bin";
     # EDITOR = "emacs";
   };
 
