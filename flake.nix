@@ -39,6 +39,7 @@
           inherit nixpkgs;
           inherit hyprland;
           inherit hypr-plugins;
+          inherit home-manager;
         };
       };
       homeConfigurations."netsu" = home-manager.lib.homeManagerConfiguration {

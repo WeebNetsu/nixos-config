@@ -1,4 +1,10 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  unstable,
+  nixpkgs,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -15,9 +21,21 @@
   # release notes.
   home.stateVersion = "25.11"; # Please read the comment before changing.
 
+  nixpkgs.config.allowUnfree = true;
+
+  programs.git = {
+    enable = true;
+    userName = "WeebNetsu";
+    userEmail = "stephenvdw7777@gmail.com";
+    extraConfig = {
+      init.defaultBranch = "main";
+      credential.helper = "libsecret";
+    };
+  };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -34,6 +52,55 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+
+    vscode
+    brave
+    mongodb-compass
+    slack
+    telegram-desktop
+    discord
+    handbrake
+    sqlitebrowser
+    audacity
+    # megasync
+    # megacmd
+    hoppscotch
+    vivaldi
+    brasero
+    warpinator
+    scrcpy
+    lmstudio
+    nemo
+    lite-xl # sublime text alt
+    # meteor # too old, like version 2 instead of 3
+    qbittorrent
+    element-desktop
+    libreoffice
+    gnome-calculator
+    # polybar
+    # cava
+    flameshot
+    grim # required by flameshot on wayland systems
+
+    #development
+    opencode
+    nodejs_20
+    # distrobox
+    flutter
+    # dart
+    rust-analyzer
+    rustc
+    cargo
+    gcc
+    python315
+    nimble
+    nim
+
+    # games
+    unciv
+
+    # unstable packages
+    unstable.fresh-editor
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

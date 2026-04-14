@@ -4,6 +4,7 @@
   nixpkgs,
   hyprland,
   hypr-plugins,
+  home-manager,
   ...
 }:
 
@@ -14,7 +15,7 @@ in
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # <home-manager/nixos>
+    home-manager.nixosModules.home-manager
     # inputs.hyprland.nixosModules.default
   ];
 
@@ -40,14 +41,14 @@ in
   };
 
   # auto mount my 2 other drives
-  fileSystems."/mnt/shared" = {
-    device = "/dev/disk/by-uuid/2C6D80782C1495DF";
-    fsType = "ntfs";
-    options = [
-      "defaults"
-      "nofail" # 'nofail' prevents boot loops if the drive is missing
-    ];
-  };
+  #  fileSystems."/mnt/shared" = {
+  #    device = "/dev/disk/by-uuid/2C6D80782C1495DF";
+  #    fsType = "ntfs";
+  #    options = [
+  #      "defaults"
+  #      "nofail" # 'nofail' prevents boot loops if the drive is missing
+  #    ];
+  #  };
 
   #   fileSystems."/mnt/linux-mint" = {
   #     device = "/dev/disk/by-uuid/185ea12c-8c2a-45a3-9d07-01ecd7b93657";
@@ -139,56 +140,6 @@ in
       "render"
       "docker"
     ];
-    packages = with pkgs; [
-      vscode
-      brave
-      mongodb-compass
-      slack
-      telegram-desktop
-      discord
-      handbrake
-      sqlitebrowser
-      audacity
-      # megasync
-      # megacmd
-      hoppscotch
-      vivaldi
-      brasero
-      warpinator
-      scrcpy
-      lmstudio
-      nemo
-      lite-xl # sublime text alt
-      # meteor # too old, like version 2 instead of 3
-      qbittorrent
-      element-desktop
-      libreoffice
-      gnome-calculator
-      # polybar
-      # cava
-      flameshot
-      grim # required by flameshot on wayland systems
-
-      #development
-      opencode
-      nodejs_20
-      # distrobox
-      flutter
-      # dart
-      rust-analyzer
-      rustc
-      cargo
-      gcc
-      python315
-      nimble
-      nim
-
-      # games
-      unciv
-
-      # unstable packages
-      unstable.fresh-editor
-    ];
   };
 
   zramSwap = {
@@ -272,6 +223,17 @@ in
     ];
   };
 
+  #   programs.git = {
+  #     enable = true;
+  #     package = pkgs.git.override { withLibsecret = true; };
+  #     settings.user = {
+  #       name = "Stephen";
+  #       email = "stephenvdw7777@gmail.com";
+  #       credential.helper = "libsecret";
+  #     };
+
+  #   };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -281,7 +243,6 @@ in
     os-prober
     htop
     nvtopPackages.nvidia
-    git
     nixfmt # format nix code
     trash-cli
     tldr
@@ -312,18 +273,41 @@ in
     "com.actualbudget.actual"
   ];
 
-  #   home-manager = {
-  #     # extraSpecialArgs = { inherit inputs; };
-  #     users = {
-  #       "netsu" = import ./home.nix;
-  #     };
-  #   };
+  home-manager = {
+    extraSpecialArgs = { inherit unstable; };
+    users = {
+      "netsu" = import ./home.nix;
+    };
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+  networking.firewall = {
+    enable = true;
+    # Warpinator uses 42000 for transfers and 42001 for authentication
+    allowedTCPPorts = [
+      42000
+      42001
+    ];
+    allowedUDPPorts = [
+      42000
+      42001
+    ];
+  };
+
+  #   required by warpinator
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true; # Allows software to find .local addresses
+    publish = {
+      enable = true;
+      addresses = true;
+      userServices = true;
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
