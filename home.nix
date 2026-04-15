@@ -3,10 +3,15 @@
   pkgs,
   unstable,
   nixpkgs,
+  inputs,
   ...
 }:
 
 {
+  imports = [
+    inputs.nix-flatpak.homeManagerModules.nix-flatpak
+  ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "netsu";
@@ -31,6 +36,14 @@
       init.defaultBranch = "main";
       credential.helper = "libsecret";
     };
+  };
+
+  # Nix CLI helper https://github.com/nix-community/nh
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/netsu/Documents/configs/nixos-config"; # sets NH_OS_FLAKE variable for you
   };
 
   # The home.packages option allows you to install Nix packages into your
@@ -64,6 +77,7 @@
     liquidsoap
     # polybar
     # cava
+    sxiv # view images in terminal
     flameshot
     grim # required by flameshot on wayland systems
 
@@ -89,6 +103,11 @@
 
     # unstable packages
     unstable.fresh-editor
+  ];
+
+  services.flatpak.packages = [
+    "com.actualbudget.actual"
+    "net.ankiweb.Anki"
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

@@ -4,4 +4,16 @@ My NixOS config for my system.
 
 ## Compile with flake
 
-`sudo nixos-rebuild switch --flake /etc/nixos#nixos`
+`sudo nixos-rebuild switch --flake .#nixos`
+
+### With NH
+
+`nh os switch .`
+
+#### Updating
+
+`nh os switch . --update`
+
+#### Clean
+
+`nh clean all --ask`

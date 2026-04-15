@@ -5,6 +5,7 @@
   hyprland,
   hypr-plugins,
   home-manager,
+  inputs,
   ...
 }:
 
@@ -27,11 +28,23 @@ in
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  # to help mount external drives
+  #   boot.supportedFilesystems = [
+  #     "ntfs"
+  #     "exfat"
+  #   ];
 
   # fix my f-keys
   boot.extraModprobeConfig = ''
     options hid_apple fnmode=2
   '';
+
+  systemd.settings = {
+    Manager = {
+      # stop waiting 1+ min to just reboot
+      DefaultTimeoutStopSec = "10s";
+    };
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
 
@@ -95,7 +108,13 @@ in
   };
 
   # enable mounting and unmounting external drives
-  #   services.udisks2.enable = true;
+  services.udisks2.enable = true;
+
+  # allows file manager to talk to udisk2?
+  services.gvfs.enable = true;
+  #   auto mount drives?
+  services.devmon.enable = true;
+
   # This makes the NTFS helper available to udisks2 and the kernel
   #   system.fsPackages = [ pkgs.ntfs3g ];
 
@@ -141,6 +160,7 @@ in
       "video"
       "render"
       "docker"
+      #   "storage"
     ];
   };
 
@@ -271,12 +291,8 @@ in
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
-  services.flatpak.packages = [
-    "com.actualbudget.actual"
-  ];
-
   home-manager = {
-    extraSpecialArgs = { inherit unstable; };
+    extraSpecialArgs = { inherit unstable inputs; };
     users = {
       "netsu" = import ./home.nix;
     };

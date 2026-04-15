@@ -22,7 +22,7 @@
       hyprland,
       hypr-plugins,
       home-manager,
-    }:
+    }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -40,6 +40,7 @@
           inherit hyprland;
           inherit hypr-plugins;
           inherit home-manager;
+          inputs = inputs;
         };
       };
       homeConfigurations."netsu" = home-manager.lib.homeManagerConfiguration {
