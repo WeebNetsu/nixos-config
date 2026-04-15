@@ -277,6 +277,7 @@ in
     waybar
     rofi
     unzip
+    lsof
 
     # ntfs3g # For NTFS support
     # exfat # For exFAT support
@@ -325,6 +326,12 @@ in
       addresses = true;
       userServices = true;
     };
+  };
+
+  services.open-webui = {
+    enable = true;
+    port = 5555;
+    openFirewall = true;
   };
 
   # This value determines the NixOS release from which the default

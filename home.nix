@@ -26,12 +26,22 @@
   # release notes.
   home.stateVersion = "25.11"; # Please read the comment before changing.
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      # required by sublime text https://github.com/sublimehq/sublime_text/issues/5984
+      "openssl-1.1.1w"
+    ];
+  };
 
   programs.git = {
     enable = true;
-    userName = "WeebNetsu";
-    userEmail = "stephenvdw7777@gmail.com";
+    settings = {
+      user = {
+        name = "WeebNetsu";
+        email = "stephenvdw7777@gmail.com";
+      };
+    };
     extraConfig = {
       init.defaultBranch = "main";
       credential.helper = "libsecret";
@@ -67,7 +77,8 @@
     scrcpy
     lmstudio
     nemo
-    lite-xl # sublime text alt
+    # lite-xl # sublime text alt
+    sublime4
     # meteor # too old, like version 2 instead of 3
     qbittorrent
     element-desktop
