@@ -65,24 +65,6 @@ in
   #    ];
   #  };
 
-  #   fileSystems."/mnt/linux-mint" = {
-  #     device = "/dev/disk/by-uuid/185ea12c-8c2a-45a3-9d07-01ecd7b93657";
-  #     fsType = "ext4";
-  #     options = [
-  #       "defaults"
-  #       "nofail"
-  #     ];
-  #   };
-
-  # give me permission on the drives
-  #   system.activationScripts.fix-drive-permissions = {
-  #     text = ''
-  #       chown -R netsu:users /mnt/shared
-  #       chown -R netsu:users /mnt/linux-mint
-  #     '';
-  #     deps = [ ];
-  #   };
-
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -182,7 +164,7 @@ in
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
-      #   stdenv.cc.cc
+      #   stdenv.cc.cc.lib
       #   zlib
       #   curl
       #   openssl
@@ -278,6 +260,8 @@ in
     rofi
     unzip
     lsof
+    # seahorse # GUI to manage your passwords and see if it's unlocked
+    # polkit_gnome # Required for many apps to ask for permission
 
     # ntfs3g # For NTFS support
     # exfat # For exFAT support
@@ -286,6 +270,7 @@ in
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
   services.gnome.gnome-keyring.enable = true;
+  #   security.pam.services.lightdm.enableGnomeKeyring = true;
 
   services.flatpak.enable = true;
   # below is required to use flatpak
@@ -332,6 +317,24 @@ in
     enable = true;
     port = 5555;
     openFirewall = true;
+  };
+
+  services.searx = {
+    enable = true;
+    environmentFile = "/home/netsu/searxng.env";
+    package = pkgs.searxng;
+    settings = {
+      server.port = 8888;
+      server.bind_address = "0.0.0.0";
+
+      search = {
+        # json allows lm studio to make searches
+        formats = [
+          "html"
+          "json"
+        ];
+      };
+    };
   };
 
   # This value determines the NixOS release from which the default

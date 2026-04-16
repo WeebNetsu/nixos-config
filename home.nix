@@ -86,11 +86,14 @@
     gnome-calculator
     calc
     liquidsoap
+    openai-whisper
     # polybar
     # cava
     sxiv # view images in terminal
     flameshot
     grim # required by flameshot on wayland systems
+    hyprpicker # color picker
+    wl-clipboard # required by hyprpicker
 
     #development
     opencode
@@ -108,10 +111,13 @@
     typescript
     lua
     love
+    # pipx
+    pdm
 
     # games
     unciv
 
+    # inputs.comfyui-nix.packages.${pkgs.system}.comfyui-cuda
     # unstable packages
     unstable.fresh-editor
   ];

@@ -11,6 +11,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # comfyui-nix.url = "github:utensils/comfyui-nix";
   };
 
   outputs =
@@ -22,6 +23,7 @@
       hyprland,
       hypr-plugins,
       home-manager,
+      # comfyui-nix,
     }@inputs:
     let
       system = "x86_64-linux";
@@ -52,6 +54,7 @@
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
+        # extraSpecialArgs = { inherit inputs; };
       };
     };
 }
