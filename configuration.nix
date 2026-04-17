@@ -77,6 +77,29 @@ in
   # enable docker
   virtualisation.docker.enable = true;
 
+  virtualisation.oci-containers = {
+    backend = "docker";
+    containers = {
+      portainer = {
+        image = "portainer/portainer-ce:latest";
+        ports = [
+          #   "9445:8000"
+          "9443:9443"
+        ];
+        volumes = [
+          "/var/run/docker.sock:/var/run/docker.sock"
+          "portainer_data:/data"
+        ];
+        extraOptions = [ "--name=portainer" ];
+      };
+    };
+  };
+
+  #   systemd.services.kokoro-tts = {
+  #     script = "docker run --gpus all -p 5959:8880 ghcr.io/remsky/kokoro-fastapi-gpu:latest";
+  #     wantedBy = [ "multi-user.target" ];
+  #   };
+
   # Add open source nvidia drivers
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -285,20 +308,16 @@ in
   };
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
   networking.firewall = {
     enable = true;
     # Warpinator uses 42000 for transfers and 42001 for authentication
     allowedTCPPorts = [
-      42000
-      42001
+      42000 # warpinator
+      42001 # warpinator
     ];
     allowedUDPPorts = [
-      42000
-      42001
+      42000 # warpinator
+      42001 # warpinator
     ];
   };
 
@@ -317,6 +336,7 @@ in
     enable = true;
     port = 5555;
     openFirewall = true;
+    host = "0.0.0.0";
   };
 
   services.searx = {

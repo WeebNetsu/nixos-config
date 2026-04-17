@@ -70,7 +70,7 @@
     audacity
     nextcloud-client # use nextcloudcmd instead of the client as it is wonky on hyprland
     # megasync # just couldn't get megasync or megacli to work on Hyprland
-    hoppscotch
+    # hoppscotch # doesn't work on wayland
     vivaldi
     brasero
     warpinator
@@ -94,6 +94,8 @@
     grim # required by flameshot on wayland systems
     hyprpicker # color picker
     wl-clipboard # required by hyprpicker
+    # piper-tts
+    wyoming-piper
 
     #development
     opencode
