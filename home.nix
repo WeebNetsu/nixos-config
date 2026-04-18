@@ -94,7 +94,7 @@
     grim # required by flameshot on wayland systems
     hyprpicker # color picker
     wl-clipboard # required by hyprpicker
-    # piper-tts
+    piper-tts
     wyoming-piper
 
     #development

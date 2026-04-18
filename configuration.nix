@@ -267,6 +267,7 @@ in
     neovim
     fastfetch
     curl
+    wget
     os-prober
     htop
     nvtopPackages.nvidia
