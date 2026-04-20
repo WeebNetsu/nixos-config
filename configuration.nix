@@ -284,6 +284,7 @@ in
     rofi
     unzip
     lsof
+
     # seahorse # GUI to manage your passwords and see if it's unlocked
     # polkit_gnome # Required for many apps to ask for permission
 
