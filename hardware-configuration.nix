@@ -24,7 +24,7 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  fileSystems."/var/lib/docker/rootfs/overlayfs/237b5d8d39de1eadb53c7dc4263100ae412d35d5ef10cd2b204748813d3d551e" =
+  fileSystems."/var/lib/docker/rootfs/overlayfs/92b49f9a5982a1320e8c88b553b928f00e47de84f94e5c7dc80a720a42a38acb" =
     { device = "overlay";
       fsType = "overlay";
     };
