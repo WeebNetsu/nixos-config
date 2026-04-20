@@ -31,7 +31,7 @@
     permittedInsecurePackages = [
       # required by sublime text https://github.com/sublimehq/sublime_text/issues/5984
       "openssl-1.1.1w"
-      "ventoy-gtk3-1.1.10"
+      #   "ventoy-gtk3-1.1.10"
     ];
   };
 
@@ -97,7 +97,7 @@
     wl-clipboard # required by hyprpicker
     piper-tts
     # wyoming-piper
-    ventoy-full-gtk
+    # ventoy-full-gtk
 
     #development
     opencode
