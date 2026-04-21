@@ -90,7 +90,7 @@
     openai-whisper
     # polybar
     # cava
-    sxiv # view images in terminal
+    imv # sxiv alternative
     flameshot
     grim # required by flameshot on wayland systems
     hyprpicker # color picker
@@ -98,6 +98,8 @@
     piper-tts
     # wyoming-piper
     # ventoy-full-gtk
+    patool
+    kdePackages.kdenlive
 
     #development
     opencode
