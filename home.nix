@@ -42,8 +42,7 @@
         name = "WeebNetsu";
         email = "stephenvdw7777@gmail.com";
       };
-    };
-    extraConfig = {
+
       init.defaultBranch = "main";
       credential.helper = "libsecret";
     };
@@ -100,6 +99,8 @@
     # ventoy-full-gtk
     patool
     kdePackages.kdenlive
+    # gimp
+    gimp-with-plugins
 
     #development
     opencode

@@ -17,53 +17,21 @@ in
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     home-manager.nixosModules.home-manager
+    ./boot.nix
+    ./hardware.nix
+    ./services.nix
+    ./virtualisation.nix
+    ./programs.nix
     # inputs.hyprland.nixosModules.default
   ];
 
-  # Bootloader.
-  # disable systemd boot to make grub work
-  # boot.loader.systemd-boot.enable = true;
-  boot.loader.grub.enable = true;
-  boot.loader.grub.useOSProber = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.efiSupport = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  # to help mount external drives
-  #   boot.supportedFilesystems = [
-  #     "ntfs"
-  #     "exfat"
-  #   ];
-
-  # fix my f-keys
-  boot.extraModprobeConfig = ''
-    options hid_apple fnmode=2
-  '';
-
-  systemd.settings = {
-    Manager = {
-      # stop waiting 1+ min to just reboot
-      DefaultTimeoutStopSec = "10s";
-    };
-  };
+  powerManagement.cpuFreqGovernor = "performance";
 
   networking.hostName = "nixos"; # Define your hostname.
 
   environment.variables = {
     GTK_THEME = "Adwaita-dark";
-    # QT_QPA_PLATFORM = "wayland;xcb";
-    # This one is often the magic bullet for tray menus
-    # QT_QPA_PLATFORMTHEME = "qt5ct";
   };
-
-  # auto mount my 2 other drives
-  #  fileSystems."/mnt/shared" = {
-  #    device = "/dev/disk/by-uuid/2C6D80782C1495DF";
-  #    fsType = "ntfs";
-  #    options = [
-  #      "defaults"
-  #      "nofail" # 'nofail' prevents boot loops if the drive is missing
-  #    ];
-  #  };
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -73,87 +41,6 @@ in
 
   # Select internationalization properties.
   i18n.defaultLocale = "en_ZA.UTF-8";
-
-  # enable docker
-  virtualisation.docker.enable = true;
-
-  virtualisation.oci-containers = {
-    backend = "docker";
-    containers = {
-      portainer = {
-        image = "portainer/portainer-ce:latest";
-        ports = [
-          #   "9445:8000"
-          "9443:9443"
-        ];
-        volumes = [
-          "/var/run/docker.sock:/var/run/docker.sock"
-          "portainer_data:/data"
-        ];
-        extraOptions = [ "--name=portainer" ];
-      };
-    };
-  };
-
-  #   systemd.services.kokoro-tts = {
-  #     script = "docker run --gpus all -p 5959:8880 ghcr.io/remsky/kokoro-fastapi-gpu:latest";
-  #     wantedBy = [ "multi-user.target" ];
-  #   };
-
-  # Add open source nvidia drivers
-  services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
-  #   hardware.nvidia.open = true;
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    open = true; # Since you're using the open-source modules
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
-
-  # enable mounting and unmounting external drives
-  services.udisks2.enable = true;
-
-  # allows file manager to talk to udisk2?
-  services.gvfs.enable = true;
-  #   auto mount drives?
-  services.devmon.enable = true;
-
-  # This makes the NTFS helper available to udisks2 and the kernel
-  #   system.fsPackages = [ pkgs.ntfs3g ];
-
-  # Enable the XFCE Desktop Environment.
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "za";
-    variant = "";
-  };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
-  # other services
-  services.playerctld.enable = true; # play pause from anywhere support
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.netsu = {
@@ -175,47 +62,12 @@ in
     algorithm = "zstd";
   };
 
+  security.rtkit.enable = true;
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # fixes some meteorjs issues when installed with curl
-  programs.nix-ld = {
-    enable = true;
-    libraries = with pkgs; [
-      #   stdenv.cc.cc.lib
-      #   zlib
-      #   curl
-      #   openssl
-    ];
-  };
-
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # enable virtualization with virt manager
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
-
-  # vpn
-  services.mullvad-vpn.enable = true;
-
-  # Hyprland WM
-
-  programs.hyprland = {
-    enable = true;
-    # Use the package from the flake
-    package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-
-    # Use the plugin from the same flake source
-    plugins = [
-      hypr-plugins.packages.${pkgs.system}.hyprscrolling
-    ];
-  };
 
   # Optional, hint Electron apps to use Wayland:
   environment.sessionVariables = {
@@ -229,75 +81,6 @@ in
     WLR_NO_HARDWARE_CURSORS = "1";
   };
 
-  # fix theming issues
-  programs.dconf.profiles.user.databases = [
-    {
-      settings."org/gnome/desktop/interface" = {
-        gtk-theme = "Adwaita";
-        icon-theme = "Flat-Remix-Red-Dark";
-        font-name = "Noto Sans Medium 11";
-        document-font-name = "Noto Sans Medium 11";
-        monospace-font-name = "Noto Sans Mono Medium 11";
-      };
-    }
-  ];
-
-  # obs with droidcam
-  programs.obs-studio = {
-    enable = true;
-    plugins = with pkgs.obs-studio-plugins; [
-      droidcam-obs
-    ];
-  };
-
-  #   programs.git = {
-  #     enable = true;
-  #     package = pkgs.git.override { withLibsecret = true; };
-  #     settings.user = {
-  #       name = "Stephen";
-  #       email = "stephenvdw7777@gmail.com";
-  #       credential.helper = "libsecret";
-  #     };
-
-  #   };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    neovim
-    fastfetch
-    curl
-    wget
-    os-prober
-    htop
-    nvtopPackages.nvidia
-    nixfmt # format nix code
-    trash-cli
-    tldr
-    speedtest-cli
-    mpv
-    xdg-desktop-portal-hyprland # required by hyprland
-    ncdu
-    cmake
-    hyprpaper # wallpapers on hyprland
-    waybar
-    rofi
-    unzip
-    lsof
-
-    # seahorse # GUI to manage your passwords and see if it's unlocked
-    # polkit_gnome # Required for many apps to ask for permission
-
-    # ntfs3g # For NTFS support
-    # exfat # For exFAT support
-  ];
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-  #   security.pam.services.lightdm.enableGnomeKeyring = true;
-
-  services.flatpak.enable = true;
   # below is required to use flatpak
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
@@ -321,42 +104,6 @@ in
       42000 # warpinator
       42001 # warpinator
     ];
-  };
-
-  #   required by warpinator
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true; # Allows software to find .local addresses
-    publish = {
-      enable = true;
-      addresses = true;
-      userServices = true;
-    };
-  };
-
-  services.open-webui = {
-    enable = true;
-    port = 5555;
-    openFirewall = true;
-    host = "0.0.0.0";
-  };
-
-  services.searx = {
-    enable = true;
-    environmentFile = "/home/netsu/searxng.env";
-    package = pkgs.searxng;
-    settings = {
-      server.port = 8888;
-      server.bind_address = "0.0.0.0";
-
-      search = {
-        # json allows lm studio to make searches
-        formats = [
-          "html"
-          "json"
-        ];
-      };
-    };
   };
 
   # This value determines the NixOS release from which the default

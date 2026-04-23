@@ -17,3 +17,7 @@ My NixOS config for my system.
 #### Clean
 
 `nh clean all --ask`
+
+#### Install/Fix bootloader
+
+`sudo nixos-rebuild switch --flake .#nixos --install-bootloader`
