@@ -89,8 +89,10 @@
     # polybar
     # cava
     imv # sxiv alternative
-    flameshot
-    grim # required by flameshot on wayland systems
+    # flameshot
+    satty # flameshot alternative
+    slurp # "select a region in wayland and print it to stdout" used by grim/satty
+    grim # required by flameshot and satty on wayland systems
     hyprpicker # color picker
     wl-clipboard # required by hyprpicker
     piper-tts
