@@ -45,8 +45,9 @@
     # vpn
     mullvad-vpn.enable = true;
 
+    # enable keyring
+    dbus.enable = true;
     gnome.gnome-keyring.enable = true;
-    #   security.pam.services.lightdm.enableGnomeKeyring = true;
 
     flatpak.enable = true;
 

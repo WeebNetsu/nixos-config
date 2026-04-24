@@ -44,7 +44,6 @@
       };
 
       init.defaultBranch = "main";
-      credential.helper = "libsecret";
     };
   };
 

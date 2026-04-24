@@ -31,6 +31,7 @@ in
 
   environment.variables = {
     GTK_THEME = "Adwaita-dark";
+    DBUS_SESSION_BUS_ADDRESS = "unix:path=/run/user/1000/bus";
   };
 
   # Enable networking
@@ -62,7 +63,11 @@ in
     algorithm = "zstd";
   };
 
+  # required by pipewire?
   security.rtkit.enable = true;
+
+  # unlock the darn keyring!
+  security.pam.services.lightdm.enableGnomeKeyring = true;
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -79,6 +84,11 @@ in
     GBM_BACKEND = "nvidia-drm";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     WLR_NO_HARDWARE_CURSORS = "1";
+
+    # Tells Electron apps to look for the GNOME keyring
+    PASSWORD_STORE_SET = "gnome-keyring";
+    # Some apps specifically look for this to enable secret service support (element chat)
+    XDG_CURRENT_DESKTOP = "GNOME";
   };
 
   # below is required to use flatpak
