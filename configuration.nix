@@ -53,6 +53,7 @@ in
       "video"
       "render"
       "docker"
+      #   "cdrom"
       #   "storage"
     ];
   };

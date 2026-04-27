@@ -71,7 +71,7 @@
     # megasync # just couldn't get megasync or megacli to work on Hyprland
     # hoppscotch # doesn't work on wayland
     vivaldi
-    brasero
+    # brasero
     warpinator
     scrcpy
     lmstudio
@@ -98,10 +98,14 @@
     piper-tts
     # wyoming-piper
     # ventoy-full-gtk
-    patool
+    patool # archive manager, unzip, zip etc. less cumbersome that tar
     kdePackages.kdenlive
     # gimp
     gimp-with-plugins
+    yt-dlp
+    # kdePackages.k3b # cd burning, alternative to brasero
+    # dvdplusrwtools # https://nixos.wiki/wiki/Writing_DVDs
+    kdePackages.ark
 
     #development
     opencode
