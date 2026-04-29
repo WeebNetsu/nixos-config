@@ -1,11 +1,6 @@
 {
-  config,
   pkgs,
   nixpkgs,
-  hyprland,
-  hypr-plugins,
-  home-manager,
-  inputs,
   ...
 }:
 
@@ -48,33 +43,9 @@
   ];
 
   programs = {
-    # fixes some meteorjs issues when installed with curl
-    nix-ld = {
-      enable = true;
-      libraries = with pkgs; [
-        #   stdenv.cc.cc.lib
-        #   zlib
-        #   curl
-        #   openssl
-      ];
-    };
-
     # Install firefox.
     firefox.enable = true;
-
     virt-manager.enable = true;
-
-    # Hyprland WM
-    hyprland = {
-      enable = true;
-      # Use the package from the flake
-      package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-
-      # Use the plugin from the same flake source
-      plugins = [
-        hypr-plugins.packages.${pkgs.system}.hyprscrolling
-      ];
-    };
 
     # fix theming issues
     dconf.profiles.user.databases = [
@@ -88,13 +59,5 @@
         };
       }
     ];
-
-    # obs with droidcam
-    obs-studio = {
-      enable = true;
-      plugins = with pkgs.obs-studio-plugins; [
-        droidcam-obs
-      ];
-    };
   };
 }

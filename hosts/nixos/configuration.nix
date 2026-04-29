@@ -24,15 +24,10 @@ in
 
   powerManagement.cpuFreqGovernor = "performance";
 
-  networking.hostName = "nixos"; # Define your hostname.
-
   environment.variables = {
     GTK_THEME = "Adwaita-dark";
     DBUS_SESSION_BUS_ADDRESS = "unix:path=/run/user/1000/bus";
   };
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Africa/Johannesburg";
@@ -101,20 +96,6 @@ in
     users = {
       "netsu" = import ../../home.nix;
     };
-  };
-
-  # Open ports in the firewall.
-  networking.firewall = {
-    enable = true;
-    # Warpinator uses 42000 for transfers and 42001 for authentication
-    allowedTCPPorts = [
-      42000 # warpinator
-      42001 # warpinator
-    ];
-    allowedUDPPorts = [
-      42000 # warpinator
-      42001 # warpinator
-    ];
   };
 
   # This value determines the NixOS release from which the default
