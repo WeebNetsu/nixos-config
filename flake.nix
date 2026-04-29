@@ -35,14 +35,17 @@
         modules = [
           nix-flatpak.nixosModules.nix-flatpak
           hyprland.nixosModules.default
-          ./configuration.nix
+          ./hosts/nixos/configuration.nix
         ];
         specialArgs = {
-          inherit nixpkgs;
-          inherit hyprland;
-          inherit hypr-plugins;
-          inherit home-manager;
-          inputs = inputs;
+          inherit
+            inputs
+            self
+            nixpkgs
+            hyprland
+            hypr-plugins
+            home-manager
+            ;
         };
       };
       homeConfigurations."netsu" = home-manager.lib.homeManagerConfiguration {

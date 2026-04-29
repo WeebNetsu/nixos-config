@@ -6,6 +6,7 @@
   hypr-plugins,
   home-manager,
   inputs,
+  self,
   ...
 }:
 
@@ -17,12 +18,8 @@ in
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     home-manager.nixosModules.home-manager
-    ./boot.nix
-    ./hardware.nix
-    ./services.nix
-    ./virtualisation.nix
-    ./programs.nix
-    # inputs.hyprland.nixosModules.default
+    "${self}/modules/core"
+    "${self}/modules/nixos"
   ];
 
   powerManagement.cpuFreqGovernor = "performance";
@@ -102,7 +99,7 @@ in
   home-manager = {
     extraSpecialArgs = { inherit unstable inputs; };
     users = {
-      "netsu" = import ./home.nix;
+      "netsu" = import ../../home.nix;
     };
   };
 
