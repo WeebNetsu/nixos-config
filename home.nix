@@ -67,7 +67,7 @@
     handbrake
     sqlitebrowser
     audacity
-    nextcloud-client # use nextcloudcmd instead of the client as it is wonky on hyprland
+    # nextcloud-client # use nextcloudcmd instead of the client as it is wonky on hyprland
     # megasync # just couldn't get megasync or megacli to work on Hyprland
     # hoppscotch # doesn't work on wayland
     vivaldi
@@ -76,6 +76,9 @@
     scrcpy
     lmstudio
     nemo
+    rclone # actually good nextcloud/megasync alternative
+    # krusader
+    bat
     # lite-xl # sublime text alt
     sublime4
     # meteor # too old, like version 2 instead of 3
@@ -110,6 +113,7 @@
     #development
     opencode
     nodejs_20
+    # bun
     # distrobox
     flutter
     # dart
@@ -148,8 +152,8 @@
       config.lib.file.mkOutOfStoreSymlink /home/netsu/Documents/configs/hypr/hyprpaper.conf;
     ".local/share/nemo/actions/open_xfce_terminal.nemo_action".source =
       config.lib.file.mkOutOfStoreSymlink /home/netsu/Documents/configs/.local/share/nemo/actions/open_xfce_terminal.nemo_action;
-    ".config/flameshot/flameshot.ini".source =
-      config.lib.file.mkOutOfStoreSymlink /home/netsu/Documents/configs/flameshot/flameshot.ini;
+    # ".config/flameshot/flameshot.ini".source =
+    #   config.lib.file.mkOutOfStoreSymlink /home/netsu/Documents/configs/flameshot/flameshot.ini;
     ".config/waybar/config.jsonc".source =
       config.lib.file.mkOutOfStoreSymlink /home/netsu/Documents/configs/waybar/config.jsonc;
     ".bashrc".source = config.lib.file.mkOutOfStoreSymlink /home/netsu/Documents/configs/.bashrc;

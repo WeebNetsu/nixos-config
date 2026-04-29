@@ -89,12 +89,15 @@ in
     # Tells Electron apps to look for the GNOME keyring
     PASSWORD_STORE_SET = "gnome-keyring";
     # Some apps specifically look for this to enable secret service support (element chat)
-    XDG_CURRENT_DESKTOP = "GNOME";
+    # XDG_CURRENT_DESKTOP = "GNOME";
   };
 
   # below is required to use flatpak
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = "*";
+  };
 
   home-manager = {
     extraSpecialArgs = { inherit unstable inputs; };
