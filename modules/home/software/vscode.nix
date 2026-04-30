@@ -135,6 +135,8 @@
             "*.erb" = "erb";
             "*.tsz" = "typescript";
           };
+          "update.statusBar" = "hidden";
+          "github.copilot.editor.enableCodeActions" = true;
           "python.showStartPage" = false;
           "security.workspace.trust.untrustedFiles" = "open";
           "security.workspace.trust.startupPrompt" = "never";
