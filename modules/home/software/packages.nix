@@ -30,7 +30,7 @@
     # nextcloud-client # use nextcloudcmd instead of the client as it is wonky on hyprland
     # megasync # just couldn't get megasync or megacli to work on Hyprland
     # hoppscotch # doesn't work on wayland
-    vivaldi
+    # vivaldi
     # brasero
     warpinator
     scrcpy
@@ -48,6 +48,7 @@
     gnome-calculator
     calc
     liquidsoap
+    # icecast
     openai-whisper
     # polybar
     # cava

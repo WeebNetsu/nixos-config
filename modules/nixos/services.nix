@@ -88,6 +88,24 @@
         };
       };
     };
+
+    icecast = {
+      enable = true;
+      hostname = "localhost";
+      admin = {
+        user = "admin";
+        password = "Luister69Liedjies!";
+      };
+      listen = {
+        port = 8000;
+      }; # Add this block:
+      extraConfig = ''
+        <authentication>
+          <source-password>Luister69Liedjies!</source-password>
+          <relay-password>Luister69Liedjies!</relay-password>
+        </authentication>
+      '';
+    };
   };
 
   # Enable the OpenSSH daemon.

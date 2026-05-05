@@ -45,6 +45,7 @@ in
       "video"
       "render"
       "docker"
+      "libvirtd"
       #   "cdrom"
       #   "storage"
     ];
