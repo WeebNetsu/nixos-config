@@ -16,10 +16,16 @@
       allowedTCPPorts = [
         42000 # warpinator
         42001 # warpinator
+        # 8080
+        # 4000
+        # 3000
       ];
       allowedUDPPorts = [
         42000 # warpinator
         42001 # warpinator
+        # 8080
+        # 4000
+        # 3000
       ];
     };
   };

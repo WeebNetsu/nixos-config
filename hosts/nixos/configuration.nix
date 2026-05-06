@@ -31,7 +31,7 @@ in
 
   # Set your time zone.
   time.timeZone = "Africa/Johannesburg";
-
+  security.polkit.enable = true;
   # Select internationalization properties.
   i18n.defaultLocale = "en_ZA.UTF-8";
 

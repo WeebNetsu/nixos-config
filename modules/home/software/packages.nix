@@ -16,9 +16,25 @@
     ];
   };
 
+  #   fonts.fontconfig.enable = true;
+  #   fonts.fontconfig.defaultFonts = {
+  #     serif = [ "Lexend" ];
+  #     sansSerif = [ "Lexend" ];
+  #     monospace = [ "Lexend" ]; # Only do this if you want Lexend for terminal/code too!
+  #   };
+
+  #   gtk = {
+  #     enable = true;
+  #     font = {
+  #       name = "Lexend";
+  #       size = 11;
+  #     };
+  #   };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    # lexend
     brave
     mongodb-compass
     slack
@@ -72,6 +88,7 @@
     kdePackages.ark
 
     #development
+    # localtunnel
     opencode
     nodejs_24
     # bun
