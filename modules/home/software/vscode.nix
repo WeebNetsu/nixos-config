@@ -104,7 +104,7 @@
         ];
         userSettings = {
           "window.zoomLevel" = -2;
-          "dart.flutterSdkPath" = "${pkgs.flutter}";
+          # "dart.flutterSdkPath" = "${pkgs.flutter}";
           "editor.multiCursorModifier" = "ctrlCmd";
           "editor.wordWrap" = "on";
           "workbench.iconTheme" = "material-icon-theme";
@@ -144,6 +144,7 @@
           "prettier.useTabs" = true;
           "python.autoUpdateLanguageServer" = false;
           "python.formatting.provider" = "black";
+          "java.jdt.ls.java.home" = "${pkgs.jdk17}";
           "[typescript]" = {
             "editor.defaultFormatter" = "esbenp.prettier-vscode";
           };

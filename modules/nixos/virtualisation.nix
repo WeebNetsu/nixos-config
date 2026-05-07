@@ -9,7 +9,9 @@
   # enable docker
   virtualisation = {
     # enable virtualization with virt manager
-    libvirtd.enable = true;
+    libvirtd = {
+      enable = true;
+    };
 
     docker.enable = true;
 

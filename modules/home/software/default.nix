@@ -7,5 +7,6 @@
     ./nh.nix
     ./flatpak.nix
     ./packages.nix
+    ./flutter.nix
   ];
 }

@@ -11,5 +11,6 @@
   services.flatpak.packages = [
     "com.actualbudget.actual"
     "net.ankiweb.Anki"
+    # "com.google.AndroidStudio"
   ];
 }

@@ -93,7 +93,8 @@
     nodejs_24
     # bun
     # distrobox
-    flutter
+    # flutter
+    # jdk21_headless
     # dart
     # rust-analyzer
     # rustc
