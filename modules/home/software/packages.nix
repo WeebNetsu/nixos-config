@@ -16,6 +16,10 @@
     ];
   };
 
+  # programs = {
+  #   chromium.enable = true;
+  # };
+
   #   fonts.fontconfig.enable = true;
   #   fonts.fontconfig.defaultFonts = {
   #     serif = [ "Lexend" ];

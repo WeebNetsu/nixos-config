@@ -2,10 +2,11 @@
 
 {
   imports = [
+    ./software
     ./programs.nix
     ./services.nix
     ./virtualisation.nix
     ./network.nix
-    ./software
+    ./fonts.nix
   ];
 }

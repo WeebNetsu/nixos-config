@@ -6,6 +6,8 @@
 }:
 
 {
+  programs.virt-manager.enable = true;
+
   # enable docker
   virtualisation = {
     # enable virtualization with virt manager

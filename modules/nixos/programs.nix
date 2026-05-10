@@ -11,6 +11,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    android-tools
+
     neovim
     fastfetch
     curl
@@ -45,7 +47,6 @@
   programs = {
     # Install firefox.
     firefox.enable = true;
-    virt-manager.enable = true;
 
     # fix theming issues
     dconf.profiles.user.databases = [
