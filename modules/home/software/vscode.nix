@@ -109,6 +109,8 @@
           "editor.wordWrap" = "on";
           "workbench.iconTheme" = "material-icon-theme";
           "editor.fontSize" = 16;
+          # "editor.fontFamily" = "'Lexend', monospace";
+          # "editor.fontLigatures" = true;
           "python.pythonPath" = "${pkgs.python315}";
           "liveServer.settings.donotVerifyTags" = true;
           "[html]" = {

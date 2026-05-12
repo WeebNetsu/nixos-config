@@ -16,24 +16,14 @@
     ];
   };
 
-  # programs = {
-  #   chromium.enable = true;
+  # gtk = {
+  #   enable = true;
+  #   gtk4.theme = null;
+  #   font = {
+  #     name = "Lexend";
+  #     size = 11;
+  #   };
   # };
-
-  #   fonts.fontconfig.enable = true;
-  #   fonts.fontconfig.defaultFonts = {
-  #     serif = [ "Lexend" ];
-  #     sansSerif = [ "Lexend" ];
-  #     monospace = [ "Lexend" ]; # Only do this if you want Lexend for terminal/code too!
-  #   };
-
-  #   gtk = {
-  #     enable = true;
-  #     font = {
-  #       name = "Lexend";
-  #       size = 11;
-  #     };
-  #   };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.

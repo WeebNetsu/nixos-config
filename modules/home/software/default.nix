@@ -8,5 +8,7 @@
     ./flatpak.nix
     ./packages.nix
     ./flutter.nix
+    ./bash.nix
+    ./obsidian.nix
   ];
 }

@@ -37,10 +37,24 @@
   #
   #  /etc/profiles/per-user/netsu/etc/profile.d/hm-session-vars.sh
   #
+  home.sessionPath = [
+    # "$HOME/bin"
+
+    "$HOME/.local/bin"
+    "$HOME/.npm-global/bin"
+    "$HOME/.pub-cache/bin"
+    "$HOME/.cargo/bin"
+    "$CARGO_HOME/bin"
+    "$HOME/.nimble/bin"
+
+    # added by LM Studio CLI
+    "$HOME/.lmstudio/bin"
+  ];
+
   home.sessionVariables = {
     # makes npm i -g work
-    PATH = "$PATH:$HOME/.npm-global/bin";
-    # EDITOR = "emacs";
+    # PATH = "$PATH:$HOME/.npm-global/bin:$HOME/.lmstudio/bin";
+    EDITOR = "fresh";
   };
 
   # Let Home Manager install and manage itself.
