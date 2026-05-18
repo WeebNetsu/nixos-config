@@ -30,6 +30,7 @@
   home.packages = with pkgs; [
     # lexend
     brave
+    whois
     mongodb-compass
     slack
     telegram-desktop

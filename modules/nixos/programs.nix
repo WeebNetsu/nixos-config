@@ -12,7 +12,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     android-tools
-
+    nixd
     neovim
     fastfetch
     curl

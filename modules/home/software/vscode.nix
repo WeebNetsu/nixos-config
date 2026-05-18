@@ -341,6 +341,7 @@
           "telemetry.feedback.enabled" = false;
           "remote.SSH.experimental.chat" = false;
           "C_Cpp.copilotHover" = "disabled";
+          "chat.disableAIFeatures" = true;
           "editor.inlineSuggest.enabled" = false;
           "docker.extension.enableComposeLanguageServer" = false;
           "python.analysis.typeCheckingMode" = "standard";

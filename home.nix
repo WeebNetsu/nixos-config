@@ -1,4 +1,5 @@
 {
+  config,
   ...
 }:
 
@@ -38,17 +39,16 @@
   #  /etc/profiles/per-user/netsu/etc/profile.d/hm-session-vars.sh
   #
   home.sessionPath = [
-    # "$HOME/bin"
-
-    "$HOME/.local/bin"
-    "$HOME/.npm-global/bin"
-    "$HOME/.pub-cache/bin"
-    "$HOME/.cargo/bin"
+    "${config.home.homeDirectory}/.local/bin"
+    "${config.home.homeDirectory}/.npm-global/bin"
+    "${config.home.homeDirectory}/.pub-cache/bin"
+    "${config.home.homeDirectory}/.cargo/bin"
     "$CARGO_HOME/bin"
-    "$HOME/.nimble/bin"
+    "${config.home.homeDirectory}/.nimble/bin"
+    "${config.home.homeDirectory}/.meteor"
 
     # added by LM Studio CLI
-    "$HOME/.lmstudio/bin"
+    "${config.home.homeDirectory}/.lmstudio/bin"
   ];
 
   home.sessionVariables = {

@@ -2,6 +2,7 @@
   pkgs,
   hyprland,
   hypr-plugins,
+  inputs,
   ...
 }:
 
@@ -15,7 +16,13 @@
 
       # Use the plugin from the same flake source
       plugins = [
-        hypr-plugins.packages.${pkgs.system}.hyprscrolling
+        # hyprscrolling is now part of core? https://github.com/hyprwm/hyprland-plugins/issues/619
+
+        # for some reasons hyprscrolling is just missing from the repos??
+        # hypr-plugins.packages.${pkgs.system}.hyprscrolling
+
+        # custom new hyprscrolling directly from source
+        # inputs.hyprscroller.packages.${pkgs.system}.hyprscroller
       ];
     };
   };

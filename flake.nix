@@ -7,6 +7,7 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=main";
     hyprland.url = "github:hyprwm/Hyprland"; # latest hyprland ver
     hypr-plugins.url = "github:hyprwm/hyprland-plugins";
+    # hyprscroller.url = "github:dawsers/hyprscroller";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,7 +24,6 @@
       hyprland,
       hypr-plugins,
       home-manager,
-      # comfyui-nix,
     }@inputs:
     let
       system = "x86_64-linux";
