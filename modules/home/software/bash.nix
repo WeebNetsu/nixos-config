@@ -46,9 +46,12 @@
   };
 
   home.shellAliases = {
-    "backup" = "rclone sync ~/Documents/LinuxMintInstalls pc-backup:pc-backup/LinuxMintInstalls";
+    # backup both to R2 and Google Drive on run
+    "backup" =
+      "rclone sync ~/Documents/LinuxMintInstalls pc-backup:pc-backup/LinuxMintInstalls && rclone sync ~/Documents/LinuxMintInstalls google-drive:/LinuxMintInstalls";
     "c" = "code .";
     "code." = "code .";
+    "hyprlogout" = "hyprctl dispatch exit";
   };
 
   home.sessionVariables = {
