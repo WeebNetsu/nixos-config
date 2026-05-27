@@ -7,29 +7,32 @@
 with lib;
 let
   androidSdk = androidComposition.androidsdk;
-  buildToolsVersionForAapt2 = "34.0.0";
+  buildToolsVersionForAapt2 = "35.0.0";
   androidComposition = pkgs.androidenv.composeAndroidPackages {
     cmdLineToolsVersion = "13.0";
     # toolsVersion = "26.1.1";
     platformToolsVersion = "35.0.2";
     buildToolsVersions = [
       buildToolsVersionForAapt2
+      "34.0.0"
       "33.0.1"
       "28.0.3" # Added to satisfy flutter doctor
     ];
     platformVersions = [
+      #   "34" # mp
       "35"
       "36"
     ];
     includeEmulator = false;
+    # includeCmdLineTools = true;
     # emulatorVersion = "35.2.11";
     includeSystemImages = false;
     # systemImageTypes = [ "google_apis_playstore" ];
     # abiVersions = [ "x86_64" ];
     includeSources = false;
-    includeNDK = false;
-    # ndkVersions = [ "22.0.7026061" ]; # As mentioned in docs
-    # cmakeVersions = [ "3.10.2" ]; # Added from docs
+    includeNDK = true;
+    ndkVersions = [ "28.2.13676358" ]; # As mentioned in docs
+    cmakeVersions = [ "3.22.1" ]; # Added from docs
     useGoogleAPIs = false;
     useGoogleTVAddOns = false;
     extraLicenses = [

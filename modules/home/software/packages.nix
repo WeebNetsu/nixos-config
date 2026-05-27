@@ -106,9 +106,13 @@
 
     # games
     unciv
+    supertuxkart
 
     # inputs.comfyui-nix.packages.${pkgs.system}.comfyui-cuda
     # unstable packages
     unstable.fresh-editor
+
+    # YOUTUBE
+    auto-editor
   ];
 }
