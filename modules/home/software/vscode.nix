@@ -6,6 +6,7 @@
 {
   programs.vscode = {
     enable = true;
+    package = pkgs.vscode-fhs; # this packages simulates a normal fs so extensions work with less tweaking
     profiles = {
       default = {
         keybindings = [
@@ -238,6 +239,7 @@
           "[json]" = {
             "editor.defaultFormatter" = "esbenp.prettier-vscode";
           };
+          "workbench.browser.openLocalhostLinks" = false;
           "explorer.confirmDragAndDrop" = false;
           "nim.nimprettyIndent" = 4;
           "nim.nimprettyMaxLineLen" = 120;

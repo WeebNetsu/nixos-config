@@ -25,6 +25,13 @@
   #   };
   # };
 
+  # programs with no additional configuration do not need their
+  # own dedicated files, instead we can just list them here
+  programs = {
+    obsidian.enable = true;
+    onlyoffice.enable = true;
+  };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -55,7 +62,7 @@
     # meteor # too old, like version 2 instead of 3
     qbittorrent
     element-desktop
-    libreoffice
+    # libreoffice
     gnome-calculator
     calc
     liquidsoap
@@ -81,6 +88,7 @@
     # kdePackages.k3b # cd burning, alternative to brasero
     # dvdplusrwtools # https://nixos.wiki/wiki/Writing_DVDs
     kdePackages.ark
+    newsflash # rss reader
 
     #development
     # localtunnel
