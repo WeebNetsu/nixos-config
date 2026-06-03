@@ -29,7 +29,7 @@
   # own dedicated files, instead we can just list them here
   programs = {
     obsidian.enable = true;
-    onlyoffice.enable = true;
+    # onlyoffice.enable = true;
   };
 
   # The home.packages option allows you to install Nix packages into your
@@ -62,7 +62,7 @@
     # meteor # too old, like version 2 instead of 3
     qbittorrent
     element-desktop
-    # libreoffice
+    libreoffice
     gnome-calculator
     calc
     liquidsoap
