@@ -46,9 +46,41 @@
   };
 
   home.shellAliases = {
-    # backup both to R2 and Google Drive on run
-    "backup" =
-      "rclone sync ~/Documents/LinuxMintInstalls pc-backup:pc-backup/LinuxMintInstalls && rclone sync ~/Documents/LinuxMintInstalls google-drive:/LinuxMintInstalls";
+    # Prepare encrypted contacts and rclone conf, backup to R2 and Google Drive
+    "backup" = ''
+      (
+        set -e # Exit immediately if any command fails
+
+        # Define our target directory
+        TARGET="$HOME/Documents/LinuxMintInstalls"
+
+        # Trash old gpg files if they exist (using -f or checking ensures trash won't crash set -e)
+        [ -f "$TARGET/contacts.db.gpg" ] && trash "$TARGET/contacts.db.gpg"
+        [ -f "$TARGET/rclone.conf.gpg" ] && trash "$TARGET/rclone.conf.gpg"
+
+        # Encrypt directly to the target folder without intermediate copies
+        gpg --batch --yes --passphrase-file "$HOME/enc_pass.txt" --output "$TARGET/contacts.db.gpg" -c "$HOME/Documents/Code/contacts/data/contacts.db"
+        gpg --batch --yes --passphrase-file "$HOME/enc_pass_2.txt" --output "$TARGET/rclone.conf.gpg" -c "$(rclone config file | tail -n 1)"
+      ) && \
+      rclone sync ~/Documents/LinuxMintInstalls pc-backup:pc-backup/LinuxMintInstalls -P && \
+      rclone sync ~/Documents/LinuxMintInstalls google-drive:/LinuxMintInstalls -P
+    '';
+    # "backup" =
+    #   "(
+    #   # delete existing files
+    #   trash $HOME/Documents/LinuxMintInstalls/contacts.db.gpg;
+    #   trash $HOME/Documents/LinuxMintInstalls/rclone.conf.gpg;
+
+    #   # copy over and encrypt files
+    #   cp $HOME/Documents/Code/contacts/data/contacts.db $HOME/Documents/LinuxMintInstalls && gpg --batch --yes --passphrase-file $HOME/enc_pass.txt -c $HOME/Documents/LinuxMintInstalls/contacts.db;
+    #   cp $HOME/.config/rclone/rclone.conf $HOME/Documents/LinuxMintInstalls && gpg --batch --yes --passphrase-file $HOME/enc_pass_2.txt -c $HOME/Documents/LinuxMintInstalls/rclone.conf;
+
+    #   # delete original copied files
+    #   trash $HOME/Documents/LinuxMintInstalls/contacts.db;
+    #   trash $HOME/Documents/LinuxMintInstalls/rclone.conf;
+    # ) && rclone sync ~/Documents/LinuxMintInstalls pc-backup:pc-backup/LinuxMintInstalls && rclone sync ~/Documents/LinuxMintInstalls google-drive:/LinuxMintInstalls";
+    # "backup" =
+    #   "rclone sync ~/Documents/LinuxMintInstalls pc-backup:pc-backup/LinuxMintInstalls && rclone sync ~/Documents/LinuxMintInstalls google-drive:/LinuxMintInstalls";
     "c" = "code .";
     "code." = "code .";
     "hyprlogout" = "hyprctl dispatch exit";

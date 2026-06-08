@@ -9,5 +9,6 @@
     ./packages.nix
     ./flutter.nix
     ./bash.nix
+    ./gpg.nix
   ];
 }
