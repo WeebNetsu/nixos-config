@@ -1,8 +1,6 @@
 {
   pkgs,
   unstable,
-  nixpkgs,
-  inputs,
   ...
 }:
 
@@ -94,6 +92,7 @@
     # localtunnel
     opencode
     nodejs_24
+    codebook
     # bun
     # distrobox
     # flutter

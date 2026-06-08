@@ -10,5 +10,6 @@
     ./flutter.nix
     ./bash.nix
     ./gpg.nix
+    # ./zed-editor.nix
   ];
 }
