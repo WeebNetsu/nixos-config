@@ -27,15 +27,15 @@
   # own dedicated files, instead we can just list them here
   programs = {
     obsidian.enable = true;
+    # cava.enable = true;
+    # cavalier.enable = true;
     # onlyoffice.enable = true;
   };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    # lexend
     brave
-    whois
     mongodb-compass
     slack
     telegram-desktop
@@ -43,31 +43,20 @@
     handbrake
     sqlitebrowser
     audacity
-    # nextcloud-client # use nextcloudcmd instead of the client as it is wonky on hyprland
-    # megasync # just couldn't get megasync or megacli to work on Hyprland
-    # hoppscotch # doesn't work on wayland
-    # vivaldi
-    # brasero
     warpinator
     scrcpy
     lmstudio
     nemo
     rclone # actually good nextcloud/megasync alternative
-    # krusader
     bat
-    # lite-xl # sublime text alt
     sublime4
-    # meteor # too old, like version 2 instead of 3
     qbittorrent
     element-desktop
     libreoffice
     gnome-calculator
     calc
     liquidsoap
-    # icecast
     openai-whisper
-    # polybar
-    # cava
     imv # sxiv alternative
     # flameshot
     satty # flameshot alternative
@@ -75,41 +64,29 @@
     grim # required by flameshot and satty on wayland systems
     hyprpicker # color picker
     wl-clipboard # required by hyprpicker
-    # piper-tts
-    # wyoming-piper
-    # ventoy-full-gtk
-    # patool # archive manager, unzip, zip etc. less cumbersome that tar
-    kdePackages.kdenlive
-    # gimp
-    gimp-with-plugins
     yt-dlp
-    # kdePackages.k3b # cd burning, alternative to brasero
-    # dvdplusrwtools # https://nixos.wiki/wiki/Writing_DVDs
     kdePackages.ark
     newsflash # rss reader
 
     #development
-    # localtunnel
+    whois
+    dig
     opencode
     nodejs_24
     codebook
-    # bun
-    # distrobox
-    # flutter
-    # jdk21_headless
-    # dart
-    # rust-analyzer
-    # rustc
-    # cargo
     gcc
     python315
     nimble
     nim
     typescript
-    # lua
-    # love
-    # pipx
-    # pdm
+    exercism # https://exercism.org/\
+    codecrafters-cli # https://app.codecrafters.io/
+    gleam
+    # needed by gleam?
+    inotify-tools
+    beam29Packages.elixir
+    beam29Packages.erlang
+    beam29Packages.rebar3
 
     # games
     unciv
@@ -120,6 +97,11 @@
     unstable.fresh-editor
 
     # YOUTUBE
+    vivaldi
+    vivaldi-ffmpeg-codecs
+    grayjay
     auto-editor
+    kdePackages.kdenlive
+    gimp-with-plugins
   ];
 }
