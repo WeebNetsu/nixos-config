@@ -44,18 +44,19 @@
     sqlitebrowser
     audacity
     warpinator
-    scrcpy
+    # scrcpy
     lmstudio
     nemo
     rclone # actually good nextcloud/megasync alternative
-    bat
+    # bat
     sublime4
     qbittorrent
-    element-desktop
+    # element-desktop
     libreoffice
     gnome-calculator
+    gnome-calendar
     calc
-    liquidsoap
+    # liquidsoap
     openai-whisper
     imv # sxiv alternative
     # flameshot
@@ -69,34 +70,35 @@
     newsflash # rss reader
 
     #development
-    whois
-    dig
-    opencode
+    # whois
+    # dig
+    # opencode
     nodejs_24
-    codebook
+    # codebook
     gcc
     python315
-    nimble
-    nim
     typescript
-    exercism # https://exercism.org/\
-    codecrafters-cli # https://app.codecrafters.io/
+    exercism # https://exercism.org/
+    # codecrafters-cli # https://app.codecrafters.io/
     gleam
     # needed by gleam?
     inotify-tools
-    beam29Packages.elixir
-    beam29Packages.erlang
-    beam29Packages.rebar3
+    beam28Packages.elixir
+    beam28Packages.erlang
+    # the beam29Packages compile seems to fail for rebar3
+    beam28Packages.rebar3
 
     # games
-    unciv
-    supertuxkart
+    # unciv
+    # supertuxkart
 
     # inputs.comfyui-nix.packages.${pkgs.system}.comfyui-cuda
     # unstable packages
     unstable.fresh-editor
 
     # YOUTUBE
+    nimble
+    nim
     vivaldi
     vivaldi-ffmpeg-codecs
     grayjay
