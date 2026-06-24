@@ -6,6 +6,14 @@
   networking = {
     hostName = "nixos"; # Define your hostname.
 
+    # hosts = {
+    #   # this is for local wildduck server, feel free to remove later
+    #   "127.0.0.1" = [
+    #     "teacher.com"
+    #     "mail.teacher.com"
+    #   ];
+    # };
+
     # Enable networking
     networkmanager.enable = true;
 

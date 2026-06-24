@@ -27,6 +27,8 @@
   # own dedicated files, instead we can just list them here
   programs = {
     obsidian.enable = true;
+    # zoom-us.enable = true;
+    # element-desktop.enable = true;
     # cava.enable = true;
     # cavalier.enable = true;
     # onlyoffice.enable = true;
@@ -35,6 +37,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
+    cinny-desktop
     brave
     mongodb-compass
     slack
@@ -51,7 +54,6 @@
     # bat
     sublime4
     qbittorrent
-    # element-desktop
     libreoffice
     gnome-calculator
     gnome-calendar
@@ -59,7 +61,6 @@
     # liquidsoap
     openai-whisper
     imv # sxiv alternative
-    # flameshot
     satty # flameshot alternative
     slurp # "select a region in wayland and print it to stdout" used by grim/satty
     grim # required by flameshot and satty on wayland systems
@@ -76,7 +77,8 @@
     nodejs_24
     # codebook
     gcc
-    python315
+    # python315
+    python314
     typescript
     exercism # https://exercism.org/
     # codecrafters-cli # https://app.codecrafters.io/
@@ -88,13 +90,11 @@
     # the beam29Packages compile seems to fail for rebar3
     beam28Packages.rebar3
 
-    # games
-    # unciv
-    # supertuxkart
-
     # inputs.comfyui-nix.packages.${pkgs.system}.comfyui-cuda
     # unstable packages
     unstable.fresh-editor
+
+    zoom-us
 
     # YOUTUBE
     nimble
