@@ -15,7 +15,10 @@
       enable = true;
     };
 
-    docker.enable = true;
+    docker = {
+      enable = true;
+      extraOptions = "--dns 1.1.1.1 --dns 8.8.8.8";
+    };
 
     # get portainer going to manage docker
     oci-containers = {

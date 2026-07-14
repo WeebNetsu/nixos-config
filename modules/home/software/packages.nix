@@ -27,6 +27,7 @@
   # own dedicated files, instead we can just list them here
   programs = {
     obsidian.enable = true;
+    distrobox.enable = true;
     # zoom-us.enable = true;
     # element-desktop.enable = true;
     # cava.enable = true;
@@ -37,9 +38,10 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    cinny-desktop
+    # cinny-desktop
     brave
     mongodb-compass
+    pinentry-all # for gpg to work nicely
     slack
     telegram-desktop
     discord
@@ -67,21 +69,27 @@
     hyprpicker # color picker
     wl-clipboard # required by hyprpicker
     yt-dlp
-    kdePackages.ark
+    kdePackages.ark # gui zip extractor
     newsflash # rss reader
+    lm_sensors # see pc temps
 
     #development
     # whois
     # dig
-    # opencode
+    just # pretty comfy package.json script alternative for gleam
+    just-lsp
+    opencode
     nodejs_24
+    # pnpm
     # codebook
     gcc
     # python315
     python314
+    # python314Packages.uv
+    # prisma_7
     typescript
-    exercism # https://exercism.org/
-    # codecrafters-cli # https://app.codecrafters.io/
+    # exercism # https://exercism.org/
+    codecrafters-cli # https://app.codecrafters.io/
     gleam
     # needed by gleam?
     inotify-tools
