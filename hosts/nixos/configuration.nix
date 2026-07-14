@@ -51,11 +51,11 @@ in
     ];
   };
 
-  # zramSwap = {
-  #   enable = true;
-  #   memoryMax = 2 * 1024 * 1024 * 1024; # 2GB in bytes
-  #   algorithm = "zstd";
-  # };
+  zramSwap = {
+    enable = true;
+    memoryMax = 2 * 1024 * 1024 * 1024; # 2GB in bytes
+    algorithm = "zstd";
+  };
 
   # required by pipewire?
   security.rtkit.enable = true;
