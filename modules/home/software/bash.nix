@@ -65,22 +65,6 @@
       rclone sync ~/Documents/LinuxMintInstalls pc-backup:pc-backup/LinuxMintInstalls -P && \
       rclone sync ~/Documents/LinuxMintInstalls google-drive:/LinuxMintInstalls -P
     '';
-    # "backup" =
-    #   "(
-    #   # delete existing files
-    #   trash $HOME/Documents/LinuxMintInstalls/contacts.db.gpg;
-    #   trash $HOME/Documents/LinuxMintInstalls/rclone.conf.gpg;
-
-    #   # copy over and encrypt files
-    #   cp $HOME/Documents/Code/contacts/data/contacts.db $HOME/Documents/LinuxMintInstalls && gpg --batch --yes --passphrase-file $HOME/enc_pass.txt -c $HOME/Documents/LinuxMintInstalls/contacts.db;
-    #   cp $HOME/.config/rclone/rclone.conf $HOME/Documents/LinuxMintInstalls && gpg --batch --yes --passphrase-file $HOME/enc_pass_2.txt -c $HOME/Documents/LinuxMintInstalls/rclone.conf;
-
-    #   # delete original copied files
-    #   trash $HOME/Documents/LinuxMintInstalls/contacts.db;
-    #   trash $HOME/Documents/LinuxMintInstalls/rclone.conf;
-    # ) && rclone sync ~/Documents/LinuxMintInstalls pc-backup:pc-backup/LinuxMintInstalls && rclone sync ~/Documents/LinuxMintInstalls google-drive:/LinuxMintInstalls";
-    # "backup" =
-    #   "rclone sync ~/Documents/LinuxMintInstalls pc-backup:pc-backup/LinuxMintInstalls && rclone sync ~/Documents/LinuxMintInstalls google-drive:/LinuxMintInstalls";
     "c" = "code .";
     "code." = "code .";
     "hyprlogout" = "hyprctl dispatch exit";

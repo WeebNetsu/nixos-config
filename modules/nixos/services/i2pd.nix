@@ -4,7 +4,7 @@
 
 {
   services.i2pd = {
-    enable = false;
+    enable = true;
     port = 9999;
     proto = {
       http = {

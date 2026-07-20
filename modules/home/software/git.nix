@@ -1,10 +1,12 @@
 {
+  pkgs,
   ...
 }:
 
 {
   programs.git = {
     enable = true;
+    # package = pkgs.gitFull;
     settings = {
       user = {
         name = "WeebNetsu";
@@ -12,6 +14,7 @@
       };
 
       init.defaultBranch = "main";
+      credential.helper = "store";
     };
   };
 }

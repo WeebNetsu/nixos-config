@@ -40,10 +40,12 @@
   home.packages = with pkgs; [
     # cinny-desktop
     brave
+    # kitty
     mongodb-compass
     pinentry-all # for gpg to work nicely
     slack
     telegram-desktop
+    # signal-desktop
     discord
     handbrake
     sqlitebrowser

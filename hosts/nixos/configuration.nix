@@ -53,7 +53,7 @@ in
 
   zramSwap = {
     enable = true;
-    memoryMax = 2 * 1024 * 1024 * 1024; # 2GB in bytes
+    memoryMax = 4 * 1024 * 1024 * 1024; # 4GB in bytes
     algorithm = "zstd";
   };
 

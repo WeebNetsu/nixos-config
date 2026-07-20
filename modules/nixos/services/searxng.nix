@@ -6,7 +6,7 @@
 {
   # search engine for our AI models
   services.searx = {
-    enable = true;
+    enable = false;
     environmentFile = "/home/netsu/searxng.env";
     package = pkgs.searxng;
     settings = {
