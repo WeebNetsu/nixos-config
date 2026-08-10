@@ -53,11 +53,13 @@
     warpinator
     # scrcpy
     lmstudio
+    # rustdesk
     nemo
     rclone # actually good nextcloud/megasync alternative
     # bat
     sublime4
     qbittorrent
+    zip
     libreoffice
     gnome-calculator
     gnome-calendar
@@ -82,7 +84,13 @@
     just-lsp
     opencode
     nodejs_24
-    # pnpm
+    pnpm
+    awscli
+    lovr
+    lua
+    # nimble
+    # nim
+    mongodb-atlas-cli
     # codebook
     gcc
     # python315
@@ -91,7 +99,7 @@
     # prisma_7
     typescript
     # exercism # https://exercism.org/
-    codecrafters-cli # https://app.codecrafters.io/
+    # codecrafters-cli # https://app.codecrafters.io/
     gleam
     # needed by gleam?
     inotify-tools
@@ -107,12 +115,10 @@
     zoom-us
 
     # YOUTUBE
-    nimble
-    nim
     vivaldi
     vivaldi-ffmpeg-codecs
-    grayjay
-    auto-editor
+    # grayjay
+    # auto-editor
     kdePackages.kdenlive
     gimp-with-plugins
   ];
