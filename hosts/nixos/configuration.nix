@@ -29,6 +29,28 @@ in
     DBUS_SESSION_BUS_ADDRESS = "unix:path=/run/user/1000/bus";
   };
 
+  # Extra SSD 1 (sda1)
+  # fileSystems."/mnt/storage1" = {
+  #   device = "/dev/disk/by-uuid/YOUR-SDA1-UUID-HERE";
+  #   fsType = "ext4"; # change to btrfs/ntfs if applicable
+  #   options = [
+  #     "defaults"
+  #     "nofail"
+  #     "x-systemd.automount"
+  #   ];
+  # };
+
+  # # Extra SSD 2 (sdb3)
+  # fileSystems."/mnt/storage2" = {
+  #   device = "/dev/disk/by-uuid/YOUR-SDB3-UUID-HERE";
+  #   fsType = "ext4";
+  #   options = [
+  #     "defaults"
+  #     "nofail"
+  #     "x-systemd.automount"
+  #   ];
+  # };
+
   # Set your time zone.
   time.timeZone = "Africa/Johannesburg";
   security.polkit.enable = true;
@@ -46,6 +68,7 @@ in
       "render"
       "docker"
       "libvirtd"
+      "adbusers"
       #   "cdrom"
       #   "storage"
     ];
@@ -71,6 +94,7 @@ in
   # Optional, hint Electron apps to use Wayland:
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+    ADB_LIBUSB = "0";
 
     # all below required for hyprland
     LIBVA_DRIVER_NAME = "nvidia";

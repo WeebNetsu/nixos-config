@@ -55,11 +55,11 @@
         TARGET="$HOME/Documents/LinuxMintInstalls"
 
         # Trash old gpg files if they exist (using -f or checking ensures trash won't crash set -e)
-        [ -f "$TARGET/contacts.db.gpg" ] && trash "$TARGET/contacts.db.gpg"
+        # [ -f "$TARGET/contacts.db.gpg" ] && trash "$TARGET/contacts.db.gpg"
         [ -f "$TARGET/rclone.conf.gpg" ] && trash "$TARGET/rclone.conf.gpg"
 
         # Encrypt directly to the target folder without intermediate copies
-        gpg --batch --yes --passphrase-file "$HOME/enc_pass.txt" --output "$TARGET/contacts.db.gpg" -c "$HOME/Documents/Code/contacts/data/contacts.db"
+        # gpg --batch --yes --passphrase-file "$HOME/enc_pass.txt" --output "$TARGET/contacts.db.gpg" -c "$HOME/Documents/Code/contacts/data/contacts.db"
         gpg --batch --yes --passphrase-file "$HOME/enc_pass_2.txt" --output "$TARGET/rclone.conf.gpg" -c "$(rclone config file | tail -n 1)"
       ) && \
       rclone sync ~/Documents/LinuxMintInstalls pc-backup:pc-backup/LinuxMintInstalls -P && \
@@ -68,6 +68,8 @@
     "c" = "code .";
     "code." = "code .";
     "hyprlogout" = "hyprctl dispatch exit";
+    # "rebuildlovr" =
+    # "adb -s 340YC10GCL071D push --sync . /sdcard/Android/data/org.lovr.app/files && adb -s 340YC10GCL071D shell am start -S org.lovr.app/org.lovr.app.Activity";
   };
 
   home.sessionVariables = {
