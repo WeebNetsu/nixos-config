@@ -79,7 +79,7 @@
 
     #development
     # whois
-    # dig
+    dig
     just # pretty comfy package.json script alternative for gleam
     just-lsp
     opencode
@@ -88,9 +88,12 @@
     awscli
     lovr
     lua
+    luarocks
+    # lux-cli
     # nimble
     # nim
     mongodb-atlas-cli
+    mongodb-tools
     # codebook
     gcc
     # python315

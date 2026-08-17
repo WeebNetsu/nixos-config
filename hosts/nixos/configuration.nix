@@ -74,11 +74,25 @@ in
     ];
   };
 
+  # in theory this should be the first responder if swap is needed
+  # with swapDevices being used as a fallback
   zramSwap = {
     enable = true;
-    memoryMax = 4 * 1024 * 1024 * 1024; # 4GB in bytes
+    memoryMax = 8 * 1024 * 1024 * 1024; # 8GB in bytes
     algorithm = "zstd";
+    priority = 50;
   };
+
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 8 * 1024; # Size in MB (e.g., 8GB)
+      priority = 10; # Lower priority than zram so it's used second
+    }
+  ];
+
+  # should help out of memory issues
+  systemd.oomd.enable = true;
 
   # required by pipewire?
   security.rtkit.enable = true;
