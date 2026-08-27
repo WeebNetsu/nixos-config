@@ -76,6 +76,7 @@
     kdePackages.ark # gui zip extractor
     newsflash # rss reader
     lm_sensors # see pc temps
+    # blender
 
     #development
     # whois
@@ -101,6 +102,7 @@
     # python314Packages.uv
     # prisma_7
     typescript
+    websocat # testing web sockets `websocat ws://localhost:4000/ws`
     # exercism # https://exercism.org/
     # codecrafters-cli # https://app.codecrafters.io/
     gleam

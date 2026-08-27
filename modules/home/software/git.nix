@@ -15,6 +15,7 @@
 
       init.defaultBranch = "main";
       credential.helper = "store";
+      pull.rebase = false;
     };
   };
 }
