@@ -6,7 +6,7 @@
   # for listening shared music like a radio
   # gebruik terwyl ek en Bak saam gewerk het in die verlede
   services.icecast = {
-    enable = true;
+    enable = false;
     hostname = "localhost";
     admin = {
       user = "admin";
