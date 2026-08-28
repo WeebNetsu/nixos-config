@@ -7,6 +7,12 @@
 {
   nixpkgs.config = {
     allowUnfree = true;
+
+    problems.handlers = {
+      # because sublime text 4 relies on unsupported ssl
+      sublimetext4.broken = "warn";
+    };
+
     permittedInsecurePackages = [
       # required by sublime text https://github.com/sublimehq/sublime_text/issues/5984
       "openssl-1.1.1w"
