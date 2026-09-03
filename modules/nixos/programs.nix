@@ -1,6 +1,7 @@
 {
   pkgs,
   nixpkgs,
+  inputs,
   ...
 }:
 
@@ -36,6 +37,9 @@
     # libsecret # get my keyring to work
     # seahorse
     # gcr
+
+    # sexy cursor for hyprland
+    inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
 
     # seahorse # GUI to manage your passwords and see if it's unlocked
     # polkit_gnome # Required for many apps to ask for permission

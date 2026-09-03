@@ -8,6 +8,13 @@
     hyprland.url = "github:hyprwm/Hyprland"; # latest hyprland ver
     hypr-plugins.url = "github:hyprwm/hyprland-plugins";
     # hyprscroller.url = "github:dawsers/hyprscroller";
+
+    rose-pine-hyprcursor = {
+      url = "github:ndom91/rose-pine-hyprcursor";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.hyprlang.follows = "hyprland/hyprlang";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,6 +31,7 @@
       hyprland,
       hypr-plugins,
       home-manager,
+      rose-pine-hyprcursor,
     }@inputs:
     let
       system = "x86_64-linux";
