@@ -24,7 +24,7 @@
       allowedTCPPorts = [
         42000 # warpinator
         42001 # warpinator
-        9999 # i2pd
+        # 9999 # i2pd
         # 8080
         # 4000
         # 3000
@@ -32,7 +32,7 @@
       allowedUDPPorts = [
         42000 # warpinator
         42001 # warpinator
-        9999 # i2pd
+        # 9999 # i2pd
         # 8080
         # 4000
         # 3000
