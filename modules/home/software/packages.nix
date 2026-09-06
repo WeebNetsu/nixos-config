@@ -8,16 +8,16 @@
   nixpkgs.config = {
     allowUnfree = true;
 
-    problems.handlers = {
-      # because sublime text 4 relies on unsupported ssl
-      sublimetext4.broken = "warn";
-    };
+    # problems.handlers = {
+    #   # because sublime text 4 relies on unsupported ssl
+    #   sublimetext4.broken = "warn";
+    # };
 
-    permittedInsecurePackages = [
-      # required by sublime text https://github.com/sublimehq/sublime_text/issues/5984
-      "openssl-1.1.1w"
-      #   "ventoy-gtk3-1.1.10"
-    ];
+    # permittedInsecurePackages = [
+    #   # required by sublime text https://github.com/sublimehq/sublime_text/issues/5984
+    #   "openssl-1.1.1w"
+    #   #   "ventoy-gtk3-1.1.10"
+    # ];
   };
 
   # gtk = {
@@ -33,7 +33,7 @@
   # own dedicated files, instead we can just list them here
   programs = {
     obsidian.enable = true;
-    distrobox.enable = true;
+    # distrobox.enable = true;
     # zoom-us.enable = true;
     # element-desktop.enable = true;
     # cava.enable = true;
@@ -63,7 +63,7 @@
     nemo
     rclone # actually good nextcloud/megasync alternative
     # bat
-    sublime4
+    # sublime4
     qbittorrent
     zip
     libreoffice
@@ -89,7 +89,6 @@
     dig
     just # pretty comfy package.json script alternative for gleam
     just-lsp
-    opencode
     nodejs_24
     pnpm
     awscli
@@ -112,18 +111,19 @@
     # exercism # https://exercism.org/
     # codecrafters-cli # https://app.codecrafters.io/
     gleam
-    # needed by gleam?
+    # ---- needed by gleam ----
     inotify-tools
     beam28Packages.elixir
     beam28Packages.erlang
     # the beam29Packages compile seems to fail for rebar3
     beam28Packages.rebar3
+    # ---- needed by gleam ----
 
     # inputs.comfyui-nix.packages.${pkgs.system}.comfyui-cuda
     # unstable packages
     unstable.fresh-editor
 
-    zoom-us
+    # zoom-us
 
     # YOUTUBE
     vivaldi
