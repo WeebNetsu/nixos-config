@@ -3,6 +3,7 @@
 {
   imports = [
     ./vscode.nix
+    ./vscodium.nix
     ./git.nix
     ./nh.nix
     ./flatpak.nix
@@ -10,6 +11,6 @@
     ./flutter.nix
     ./bash.nix
     ./gpg.nix
-    # ./zed-editor.nix
+    ./zed-editor.nix
   ];
 }
