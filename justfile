@@ -3,3 +3,6 @@ install:
 
 rebuild: 
     nh os switch .
+
+update:
+    nh os switch . --update
