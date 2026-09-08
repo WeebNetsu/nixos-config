@@ -1,8 +1,17 @@
-install: 
-    nh os switch .
+install-desktop: 
+    nh os switch .#desktop
 
-rebuild: 
-    nh os switch .
+rebuild-desktop: 
+    nh os switch .#desktop
 
-update:
-    nh os switch . --update
+update-desktop:
+    nh os switch .#desktop --update
+
+install-laptop: 
+    nh os switch .#laptop
+
+rebuild-laptop: 
+    nh os switch .#laptop
+
+update-laptop:
+    nh os switch .#laptop --update

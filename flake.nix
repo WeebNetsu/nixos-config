@@ -38,22 +38,43 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          nix-flatpak.nixosModules.nix-flatpak
-          hyprland.nixosModules.default
-          ./hosts/nixos/configuration.nix
-        ];
-        specialArgs = {
-          inherit
-            inputs
-            self
-            nixpkgs
-            hyprland
-            hypr-plugins
-            home-manager
-            ;
+      nixosConfigurations = {
+        desktop = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            nix-flatpak.nixosModules.nix-flatpak
+            hyprland.nixosModules.default
+            ./hosts/desktop/configuration.nix
+          ];
+          specialArgs = {
+            inherit
+              inputs
+              self
+              nixpkgs
+              hyprland
+              hypr-plugins
+              home-manager
+              ;
+          };
+        };
+
+        laptop = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            nix-flatpak.nixosModules.nix-flatpak
+            hyprland.nixosModules.default
+            ./hosts/laptop/configuration.nix
+          ];
+          specialArgs = {
+            inherit
+              inputs
+              self
+              nixpkgs
+              hyprland
+              hypr-plugins
+              home-manager
+              ;
+          };
         };
       };
       homeConfigurations."netsu" = home-manager.lib.homeManagerConfiguration {
