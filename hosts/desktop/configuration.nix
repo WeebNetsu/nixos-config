@@ -111,9 +111,9 @@ in
     ADB_LIBUSB = "0";
 
     # all below required for hyprland
-   # LIBVA_DRIVER_NAME = "nvidia";
+    LIBVA_DRIVER_NAME = "nvidia";
     XDG_SESSION_TYPE = "wayland";
- #   GBM_BACKEND = "nvidia-drm";
+    GBM_BACKEND = "nvidia-drm";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     WLR_NO_HARDWARE_CURSORS = "1";
 
@@ -134,6 +134,20 @@ in
     extraSpecialArgs = { inherit unstable inputs; };
     users = {
       "netsu" = import ../../home.nix;
+    };
+  };
+
+  # render with GPU not CPU
+  hardware = {
+    graphics.enable = true;
+    # if I wanna start gaming, add below line
+    # graphics.enable32Bit = true;
+
+    nvidia = {
+      modesetting.enable = true;
+      open = true;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
   };
 
