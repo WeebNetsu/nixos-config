@@ -82,7 +82,7 @@
     kdePackages.ark # gui zip extractor
     newsflash # rss reader
     lm_sensors # see pc temps
-    # blender
+    openssl
 
     #development
     # whois
