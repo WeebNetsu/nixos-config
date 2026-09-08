@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  host,
   ...
 }:
 
@@ -9,9 +10,7 @@
     # Add open source nvidia drivers
     enable = true;
     # include nvidia drivers, but only if the host is desktop
-    videoDrivers = lib.optionals (config.networking.hostName == "desktop") [
-      "nvidia"
-    ];
+    videoDrivers = if host == "desktop" then [ "nvidia" ] else [ ];
 
     # Enable the XFCE Desktop Environment.
     displayManager.lightdm.enable = true;

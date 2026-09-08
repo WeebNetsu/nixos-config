@@ -55,6 +55,7 @@
               hypr-plugins
               home-manager
               ;
+            host = "desktop";
           };
         };
 
@@ -74,6 +75,7 @@
               hypr-plugins
               home-manager
               ;
+            host = "laptop";
           };
         };
       };
