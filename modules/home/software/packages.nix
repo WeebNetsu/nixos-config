@@ -48,6 +48,7 @@
     brave
     # kitty
     mongodb-compass
+    brightnessctl # change screen brightness
     pinentry-all # for gpg to work nicely
     slack
     telegram-desktop
