@@ -45,6 +45,7 @@
   # environment.
   home.packages = with pkgs; [
     # cinny-desktop
+    requestly
     brave
     # kitty
     mongodb-compass
@@ -87,6 +88,7 @@
     #development
     # whois
     dig
+    tsx
     just # pretty comfy package.json script alternative for gleam
     just-lsp
     nodejs_24
