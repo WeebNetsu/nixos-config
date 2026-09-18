@@ -44,16 +44,13 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    # cinny-desktop
-    requestly
     brave
-    # kitty
+    drawing
     mongodb-compass
     brightnessctl # change screen brightness
     pinentry-all # for gpg to work nicely
     slack
     telegram-desktop
-    # signal-desktop
     discord
     handbrake
     sqlitebrowser
@@ -61,10 +58,8 @@
     warpinator
     # scrcpy
     lmstudio
-    # rustdesk
     nemo
     rclone # actually good nextcloud/megasync alternative
-    # bat
     # sublime4
     qbittorrent
     zip
@@ -82,7 +77,7 @@
     wl-clipboard # required by hyprpicker
     yt-dlp
     kdePackages.ark # gui zip extractor
-    newsflash # rss reader
+    # newsflash # rss reader
     lm_sensors # see pc temps
     openssl
 
@@ -94,7 +89,7 @@
     just-lsp
     nodejs_24
     pnpm
-    awscli
+    # awscli
     lovr
     lua
     luarocks
@@ -110,7 +105,7 @@
     # python314Packages.uv
     # prisma_7
     typescript
-    websocat # testing web sockets `websocat ws://localhost:4000/ws`
+    # websocat # testing web sockets `websocat ws://localhost:4000/ws`
     # exercism # https://exercism.org/
     # codecrafters-cli # https://app.codecrafters.io/
     gleam
