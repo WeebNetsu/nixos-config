@@ -18,5 +18,8 @@
     gnome.gnome-keyring.enable = true;
 
     flatpak.enable = true;
+
+    # VR :)
+    # wivrn.enable = true;
   };
 }

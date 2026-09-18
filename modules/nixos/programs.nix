@@ -52,6 +52,12 @@
     # Install firefox.
     firefox.enable = true;
 
+    # allow executing appimages
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
+
     # fix theming issues
     dconf.profiles.user.databases = [
       {

@@ -22,7 +22,7 @@ in
     "${self}/modules/nixos"
   ];
 
-  powerManagement.cpuFreqGovernor = "performance";
+  powerManagement.cpuFreqGovernor = "powersave";
 
   environment.variables = {
     GTK_THEME = "Adwaita-dark";
@@ -111,9 +111,9 @@ in
     ADB_LIBUSB = "0";
 
     # all below required for hyprland
-   # LIBVA_DRIVER_NAME = "nvidia";
+    # LIBVA_DRIVER_NAME = "nvidia";
     XDG_SESSION_TYPE = "wayland";
- #   GBM_BACKEND = "nvidia-drm";
+    #   GBM_BACKEND = "nvidia-drm";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     WLR_NO_HARDWARE_CURSORS = "1";
 
