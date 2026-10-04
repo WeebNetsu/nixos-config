@@ -57,6 +57,7 @@
     audacity
     warpinator
     # scrcpy
+    parted
     lmstudio
     nemo
     rclone # actually good nextcloud/megasync alternative
@@ -130,5 +131,9 @@
     # auto-editor
     kdePackages.kdenlive
     gimp-with-plugins
+
+    # gaming
+    heroic
+    lsfg-vk # lossless scaling
   ];
 }

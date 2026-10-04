@@ -52,6 +52,11 @@
     # Install firefox.
     firefox.enable = true;
 
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+    };
+
     # allow executing appimages
     appimage = {
       enable = true;
