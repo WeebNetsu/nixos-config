@@ -22,23 +22,23 @@
       enable = true;
       # Warpinator uses 42000 for transfers and 42001 for authentication
       allowedTCPPorts = [
-        # 42000 # warpinator
-        # 42001 # warpinator
+        42000 # warpinator
+        42001 # warpinator
         # 9999 # i2pd
         # 8080
         # 4000
         # 3000
-        # 9757 # wivrn
+        9757 # wivrn
       ];
       allowedUDPPorts = [
-        # 42000 # warpinator
-        # 42001 # warpinator
+        42000 # warpinator
+        42001 # warpinator
         # 9999 # i2pd
         # 8080
         # 4000
         # 3000
-        # 9757 # wivrn
-        # 5353 # wivrn
+        9757 # wivrn
+        5353 # wivrn
       ];
     };
   };
