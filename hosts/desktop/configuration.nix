@@ -91,8 +91,16 @@ in
     }
   ];
 
-  # should help out of memory issues
-  systemd.oomd.enable = true;
+  systemd = {
+    # should help out of memory issues
+    oomd.enable = true;
+
+    # VR :)
+    # user.services.monado.environment = {
+    #   STEAMVR_LH_ENABLE = "1";
+    #   XRT_COMPOSITOR_COMPUTE = "1";
+    # };
+  };
 
   # required by pipewire?
   security.rtkit.enable = true;
@@ -124,10 +132,25 @@ in
   };
 
   # below is required to use flatpak
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    config.common.default = "*";
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      config.common.default = "*";
+    };
+
+    # VR :)
+    # todo: lib path is /home/netsu, we should use conf.home.homeDirectory if possible
+    # configFile."openxr/1/active_runtime.json".text = ''
+    #   {
+    #      "file_format_version": "1.0.0",
+    #       "runtime": {
+    #       "VALVE_runtime_is_steamvr": true,
+    #       "library_path": "/home/netsu/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrclient.so",
+    #       "name": "SteamVR"
+    #       }
+    #   }
+    # '';
   };
 
   home-manager = {
