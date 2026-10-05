@@ -136,5 +136,12 @@
     # gaming
     heroic
     lsfg-vk # lossless scaling
+    lsfg-vk-ui
+    # for mod organizer 2
+    # xdg-utils
+    # procps
+    # cabextract
+    # protontricks
+    # winetricks
   ];
 }
