@@ -6,6 +6,11 @@
   networking = {
     hostName = "nixos"; # Define your hostname.
 
+    hosts = {
+      # for wildduck
+      "127.0.0.1" = [ "mail.teacher.com" ];
+    };
+
     # hosts = {
     #   # this is for local wildduck server, feel free to remove later
     #   "127.0.0.1" = [

@@ -117,6 +117,7 @@
     # the beam29Packages compile seems to fail for rebar3
     beam28Packages.rebar3
     # ---- needed by gleam ----
+    mkcert # make certs locally (wildduck)
 
     # inputs.comfyui-nix.packages.${pkgs.system}.comfyui-cuda
     # unstable packages
