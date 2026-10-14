@@ -46,6 +46,7 @@
   home.packages = with pkgs; [
     brave
     drawing
+    # blueman
     mongodb-compass
     brightnessctl # change screen brightness
     pinentry-all # for gpg to work nicely

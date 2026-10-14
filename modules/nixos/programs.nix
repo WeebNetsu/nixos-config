@@ -51,6 +51,7 @@
   programs = {
     # Install firefox.
     firefox.enable = true;
+    steam.enable = true;
 
     # allow executing appimages
     appimage = {
