@@ -34,6 +34,7 @@
         # 4000
         # 3000
         9757 # wivrn
+        # 22 # openssh
       ];
       allowedUDPPorts = [
         42000 # warpinator

@@ -8,6 +8,7 @@
     ./open-webui.nix
     ./pipewire.nix
     ./searxng.nix
+    ./openssh.nix
     ./services.nix
     ./xserver.nix
   ];
