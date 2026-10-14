@@ -58,6 +58,7 @@
     audacity
     warpinator
     # scrcpy
+    parted
     lmstudio
     nemo
     rclone # actually good nextcloud/megasync alternative
@@ -117,6 +118,7 @@
     # the beam29Packages compile seems to fail for rebar3
     beam28Packages.rebar3
     # ---- needed by gleam ----
+    mkcert # make certs locally (wildduck)
 
     # inputs.comfyui-nix.packages.${pkgs.system}.comfyui-cuda
     # unstable packages
@@ -131,5 +133,16 @@
     # auto-editor
     kdePackages.kdenlive
     gimp-with-plugins
+
+    # gaming
+    heroic
+    lsfg-vk # lossless scaling
+    lsfg-vk-ui
+    # for mod organizer 2
+    # xdg-utils
+    # procps
+    # cabextract
+    # protontricks
+    # winetricks
   ];
 }

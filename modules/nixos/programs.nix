@@ -53,6 +53,12 @@
     firefox.enable = true;
     steam.enable = true;
 
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      protontricks.enable = true;
+    };
+
     # allow executing appimages
     appimage = {
       enable = true;

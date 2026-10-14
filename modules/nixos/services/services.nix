@@ -20,6 +20,10 @@
     flatpak.enable = true;
 
     # VR :)
-    # wivrn.enable = true;
+    wivrn.enable = true;
+    # monado = {
+    #   enable = true;
+    #   defaultRuntime = true; # Register as default OpenXR runtime
+    # };
   };
 }

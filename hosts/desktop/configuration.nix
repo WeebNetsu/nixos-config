@@ -30,26 +30,26 @@ in
   };
 
   # Extra SSD 1 (sda1)
-  # fileSystems."/mnt/storage1" = {
-  #   device = "/dev/disk/by-uuid/YOUR-SDA1-UUID-HERE";
-  #   fsType = "ext4"; # change to btrfs/ntfs if applicable
-  #   options = [
-  #     "defaults"
-  #     "nofail"
-  #     "x-systemd.automount"
-  #   ];
-  # };
+  fileSystems."/mnt/storage" = {
+    device = "/dev/disk/by-uuid/b60b7d07-55fa-45ca-8503-f404000a3612";
+    fsType = "ext4"; # change to btrfs/ntfs if applicable
+    options = [
+      "defaults"
+      "nofail"
+      "x-systemd.automount"
+    ];
+  };
 
   # # Extra SSD 2 (sdb3)
-  # fileSystems."/mnt/storage2" = {
-  #   device = "/dev/disk/by-uuid/YOUR-SDB3-UUID-HERE";
-  #   fsType = "ext4";
-  #   options = [
-  #     "defaults"
-  #     "nofail"
-  #     "x-systemd.automount"
-  #   ];
-  # };
+  fileSystems."/mnt/games" = {
+    device = "/dev/disk/by-uuid/bcccae24-b0e0-4ec6-81e7-7db95b41a4a0";
+    fsType = "ext4";
+    options = [
+      "defaults"
+      "nofail"
+      "x-systemd.automount"
+    ];
+  };
 
   # Set your time zone.
   time.timeZone = "Africa/Johannesburg";
@@ -91,8 +91,16 @@ in
     }
   ];
 
-  # should help out of memory issues
-  systemd.oomd.enable = true;
+  systemd = {
+    # should help out of memory issues
+    oomd.enable = true;
+
+    # VR :)
+    # user.services.monado.environment = {
+    #   STEAMVR_LH_ENABLE = "1";
+    #   XRT_COMPOSITOR_COMPUTE = "1";
+    # };
+  };
 
   # required by pipewire?
   security.rtkit.enable = true;
@@ -124,10 +132,25 @@ in
   };
 
   # below is required to use flatpak
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    config.common.default = "*";
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+      config.common.default = "*";
+    };
+
+    # VR :)
+    # todo: lib path is /home/netsu, we should use conf.home.homeDirectory if possible
+    # configFile."openxr/1/active_runtime.json".text = ''
+    #   {
+    #      "file_format_version": "1.0.0",
+    #       "runtime": {
+    #       "VALVE_runtime_is_steamvr": true,
+    #       "library_path": "/home/netsu/.local/share/Steam/steamapps/common/SteamVR/bin/linux64/vrclient.so",
+    #       "name": "SteamVR"
+    #       }
+    #   }
+    # '';
   };
 
   home-manager = {
@@ -141,7 +164,7 @@ in
   hardware = {
     graphics.enable = true;
     # if I wanna start gaming, add below line
-    # graphics.enable32Bit = true;
+    graphics.enable32Bit = true;
 
     nvidia = {
       modesetting.enable = true;
