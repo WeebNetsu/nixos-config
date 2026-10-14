@@ -83,6 +83,12 @@ in
     priority = 50;
   };
 
+  hardware = {
+    # if I wanna start gaming, add below line
+    graphics.enable32Bit = true;
+    # bluetooth.enable = true;
+  };
+
   swapDevices = [
     {
       device = "/var/lib/swapfile";
