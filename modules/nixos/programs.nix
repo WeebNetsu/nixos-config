@@ -51,7 +51,6 @@
   programs = {
     # Install firefox.
     firefox.enable = true;
-    steam.enable = true;
 
     steam = {
       enable = true;
