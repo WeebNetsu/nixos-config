@@ -99,6 +99,7 @@
     # nimble
     # nim
     mongodb-atlas-cli
+    qpdf # decrypt pdfs
     mongodb-tools
     # codebook
     gcc
