@@ -15,6 +15,10 @@
             "command" = "workbench.action.toggleActivityBarVisibility";
           }
           {
+            "key" = "alt+space";
+            "command" = "editor.action.inlineSuggest.trigger";
+          }
+          {
             "key" = "ctrl+shift+/";
             "command" = "editor.action.blockComment";
             "when" = "editorTextFocus && !editorReadonly";
