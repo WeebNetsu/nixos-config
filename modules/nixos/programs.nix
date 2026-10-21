@@ -56,6 +56,7 @@
       enable = true;
       remotePlay.openFirewall = true;
       protontricks.enable = true;
+      localNetworkGameTransfers.openFirewall = true;
     };
 
     # allow executing appimages
