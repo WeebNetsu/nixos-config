@@ -104,7 +104,10 @@
     # codebook
     gcc
     # python315
-    python314
+    # python314
+    python312
+    pdm
+    python314Packages.virtualenv
     # python314Packages.uv
     # prisma_7
     typescript
@@ -137,8 +140,8 @@
 
     # gaming
     heroic
-    lsfg-vk # lossless scaling
-    lsfg-vk-ui
+    # lsfg-vk # lossless scaling
+    # lsfg-vk-ui
     # for mod organizer 2
     # xdg-utils
     # procps
