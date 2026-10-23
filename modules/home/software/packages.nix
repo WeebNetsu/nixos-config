@@ -48,29 +48,28 @@
     drawing
     # blueman
     mongodb-compass
-    brightnessctl # change screen brightness
+    brightnessctl # laptop change screen brightness
     pinentry-all # for gpg to work nicely
     slack
     telegram-desktop
     discord
-    handbrake
+    # handbrake
     sqlitebrowser
-    audacity
-    warpinator
-    # scrcpy
-    parted
+    # audacity
+    # warpinator
+    # parted
     lmstudio
     nemo
     rclone # actually good nextcloud/megasync alternative
     # sublime4
-    qbittorrent
+    # qbittorrent
     zip
     libreoffice
     gnome-calculator
     gnome-calendar
     calc
     # liquidsoap
-    openai-whisper
+    # openai-whisper
     imv # sxiv alternative
     satty # flameshot alternative
     slurp # "select a region in wayland and print it to stdout" used by grim/satty
@@ -84,36 +83,25 @@
     openssl
 
     #development
-    # whois
     dig
-    # tsx
     just # pretty comfy package.json script alternative for gleam
     just-lsp
     nodejs_24
     pnpm
-    # awscli
     lovr
     lua
     luarocks
-    # lux-cli
     # nimble
     # nim
-    mongodb-atlas-cli
-    qpdf # decrypt pdfs
+    # mongodb-atlas-cli
+    # qpdf # decrypt pdfs
     mongodb-tools
-    # codebook
     gcc
-    # python315
-    # python314
     python312
     pdm
     python314Packages.virtualenv
-    # python314Packages.uv
-    # prisma_7
     typescript
     # websocat # testing web sockets `websocat ws://localhost:4000/ws`
-    # exercism # https://exercism.org/
-    # codecrafters-cli # https://app.codecrafters.io/
     gleam
     # ---- needed by gleam ----
     inotify-tools
@@ -128,13 +116,9 @@
     # unstable packages
     unstable.fresh-editor
 
-    # zoom-us
-
     # YOUTUBE
-    vivaldi
-    vivaldi-ffmpeg-codecs
-    # grayjay
-    # auto-editor
+    # vivaldi
+    # vivaldi-ffmpeg-codecs
     kdePackages.kdenlive
     gimp-with-plugins
 
