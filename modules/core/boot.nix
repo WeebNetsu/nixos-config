@@ -31,13 +31,16 @@
       efi.canTouchEfiVariables = true;
     };
 
-    extraModulePackages = with config.boot.kernelPackages; [
-      v4l2loopback
-    ];
+    # uncomment for droidcam support
+    # extraModulePackages = with config.boot.kernelPackages; [
+    #   v4l2loopback
+    # ];
 
     # fix my f-keys and virtual camera
+    # add below to extraModprobeConfig for droidcam support
+    # v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
     extraModprobeConfig = ''
-      options hid_apple fnmode=2 v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+      options hid_apple fnmode=2
     '';
 
     # to help mount external drives
