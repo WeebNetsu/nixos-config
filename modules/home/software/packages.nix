@@ -55,7 +55,7 @@
     discord
     # handbrake
     sqlitebrowser
-    # audacity
+    audacity
     # warpinator
     # parted
     lmstudio
