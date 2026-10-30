@@ -13,7 +13,11 @@
     # enable virtualization with virt manager
     libvirtd = {
       enable = true;
+
+      qemu.swtpm.enable = true;
     };
+
+    # tpm.enable = true;
 
     docker = {
       enable = true;
