@@ -9,9 +9,12 @@
 
     # uncomment below for droidcam support
     # enableVirtualCamera = true;
-    # plugins = with pkgs.obs-studio-plugins; [
-    #   # obs with droidcam
-    #   droidcam-obs
-    # ];
+    plugins = with pkgs.obs-studio-plugins; [
+      #   # obs with droidcam
+      #   droidcam-obs
+      obs-backgroundremoval
+      # obs-composite-blur
+      # obs-dvd-screensaver
+    ];
   };
 }
