@@ -99,7 +99,9 @@
     gcc
     python312
     pdm
-    python314Packages.virtualenv
+    # python314Packages.virtualenv
+    # python314Packages.numpy
+    # libGL # sparking zero irl
     typescript
     # websocat # testing web sockets `websocat ws://localhost:4000/ws`
     gleam
@@ -132,5 +134,8 @@
     # cabextract
     # protontricks
     # winetricks
+
+    # virtualization https://www.youtube.com/watch?v=T68CTiudCVI
+    # ovmf
   ];
 }
