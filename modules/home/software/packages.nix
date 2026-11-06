@@ -47,6 +47,7 @@
     brave
     drawing
     # blueman
+    bs-manager
     mongodb-compass
     brightnessctl # laptop change screen brightness
     pinentry-all # for gpg to work nicely
@@ -56,7 +57,7 @@
     # handbrake
     sqlitebrowser
     audacity
-    # warpinator
+    warpinator
     # parted
     lmstudio
     nemo
