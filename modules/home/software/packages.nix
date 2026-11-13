@@ -54,10 +54,13 @@
     slack
     telegram-desktop
     discord
-    # handbrake
+    handbrake
     sqlitebrowser
     audacity
     warpinator
+    # xfce4-terminal
+    kitty
+    # alacritty
     # parted
     lmstudio
     nemo
@@ -79,7 +82,7 @@
     wl-clipboard # required by hyprpicker
     yt-dlp
     kdePackages.ark # gui zip extractor
-    # newsflash # rss reader
+    newsflash # rss reader
     lm_sensors # see pc temps
     openssl
 
@@ -100,6 +103,7 @@
     gcc
     python312
     pdm
+    # uv # comfyui
     # python314Packages.virtualenv
     # python314Packages.numpy
     # libGL # sparking zero irl
