@@ -39,6 +39,13 @@
     # cava.enable = true;
     # cavalier.enable = true;
     # onlyoffice.enable = true;
+
+  };
+
+  qt = {
+    enable = true;
+    platformTheme.name = "kde"; # sets QT_QPA_PLATFORMTHEME
+    style.name = "breeze";
   };
 
   # The home.packages option allows you to install Nix packages into your
@@ -63,7 +70,7 @@
     # alacritty
     # parted
     lmstudio
-    nemo
+    # nemo
     rclone # actually good nextcloud/megasync alternative
     # sublime4
     qbittorrent
@@ -142,5 +149,12 @@
 
     # virtualization https://www.youtube.com/watch?v=T68CTiudCVI
     # ovmf
+
+    # dolphin fix weird dark mode
+    kdePackages.breeze
+    kdePackages.breeze-icons
+    kdePackages.qqc2-desktop-style
+    # once installed, run qt6ct and set the theme to darker
+    kdePackages.qt6ct
   ];
 }
