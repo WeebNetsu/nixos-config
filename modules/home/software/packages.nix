@@ -66,7 +66,7 @@
     nemo
     rclone # actually good nextcloud/megasync alternative
     # sublime4
-    # qbittorrent
+    qbittorrent
     zip
     libreoffice
     gnome-calculator
@@ -124,8 +124,8 @@
     unstable.fresh-editor
 
     # YOUTUBE
-    # vivaldi
-    # vivaldi-ffmpeg-codecs
+    vivaldi
+    vivaldi-ffmpeg-codecs
     kdePackages.kdenlive
     gimp-with-plugins
 
