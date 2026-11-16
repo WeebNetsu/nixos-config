@@ -6,17 +6,27 @@ My NixOS config for my system.
 
 `sudo nixos-rebuild switch --flake .#nixos`
 
-### With NH
+### With Justfile (using nh)
 
-`nh os switch .`
+Installing changes per device with different hardware
+
+- `just install-desktop`
+- `just install-laptop`
 
 #### Updating
 
-`nh os switch . --update`
+- `just update-desktop`
+- `just update-laptop`
 
 #### Clean
 
 `nh clean all --ask`
+
+Or to keep your **latest AND oldest** generations:
+
+`just PLEASE-READ-THIS-clear-space-update-justfile-code-before-running`
+
+As the just command states, please read it before running as you will need to update the commands every time you run it
 
 #### Install/Fix bootloader
 
