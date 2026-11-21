@@ -15,8 +15,8 @@
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Documents/configs/kitty/kitty.conf";
     ".config/hypr/hyprpaper.conf".source =
       config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Documents/configs/hypr/hyprpaper.conf";
-    ".local/share/nemo/actions/open_xfce_terminal.nemo_action".source =
-      config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Documents/configs/.local/share/nemo/actions/open_xfce_terminal.nemo_action";
+    # ".local/share/nemo/actions/open_xfce_terminal.nemo_action".source =
+    # config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Documents/configs/.local/share/nemo/actions/open_xfce_terminal.nemo_action";
     # ".config/flameshot/flameshot.ini".source =
     #   config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Documents/configs/flameshot/flameshot.ini";
     ".config/waybar/config.jsonc".source =

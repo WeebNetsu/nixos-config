@@ -76,6 +76,7 @@
     qbittorrent
     zip
     libreoffice
+    # librewolf
     gnome-calculator
     gnome-calendar
     calc
