@@ -33,7 +33,7 @@
         # 8080
         # 4000
         # 3000
-        9757 # wivrn
+        # 9757 # wivrn
         # 22 # openssh
       ];
       allowedUDPPorts = [
@@ -43,8 +43,8 @@
         # 8080
         # 4000
         # 3000
-        9757 # wivrn
-        5353 # wivrn
+        # 9757 # wivrn
+        # 5353 # wivrn
       ];
     };
   };
