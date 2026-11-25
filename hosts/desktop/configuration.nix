@@ -40,16 +40,16 @@ in
     ];
   };
 
-  # # Extra SSD 2 (sdb3)
-  fileSystems."/mnt/games" = {
-    device = "/dev/disk/by-uuid/bcccae24-b0e0-4ec6-81e7-7db95b41a4a0";
-    fsType = "ext4";
-    options = [
-      "defaults"
-      "nofail"
-      "x-systemd.automount"
-    ];
-  };
+  # Extra SSD 2 (sdb3)
+  # fileSystems."/mnt/games" = {
+  #   device = "/dev/disk/by-uuid/bcccae24-b0e0-4ec6-81e7-7db95b41a4a0";
+  #   fsType = "ext4";
+  #   options = [
+  #     "defaults"
+  #     "nofail"
+  #     "x-systemd.automount"
+  #   ];
+  # };
 
   # Set your time zone.
   time.timeZone = "Africa/Johannesburg";
