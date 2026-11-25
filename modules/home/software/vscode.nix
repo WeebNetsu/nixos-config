@@ -106,6 +106,23 @@
             "command" = "-cursorHomeSelect";
             "when" = "textInputFocus";
           }
+          {
+            "key" = "ctrl+shift+v";
+            "command" = "markdown-preview-enhanced.openPreview";
+            # with no "when" this effectively acts as a deleted item
+          }
+          {
+            "key" = "ctrl+shift+v";
+            "command" = "-markdown-preview-enhanced.openPreview";
+          }
+          {
+            "key" = "ctrl+shift+v";
+            "command" = "-markdown.togglePreview";
+          }
+          {
+            "key" = "ctrl+shift+v";
+            "command" = "markdown.togglePreview";
+          }
         ];
         userSettings = {
           "window.zoomLevel" = -2;
