@@ -64,6 +64,7 @@
     handbrake
     sqlitebrowser
     audacity
+    # gparted-full
     warpinator
     # xfce4-terminal
     kitty
@@ -138,7 +139,7 @@
     gimp-with-plugins
 
     # gaming
-    heroic
+    # heroic
     # lsfg-vk # lossless scaling
     # lsfg-vk-ui
     # for mod organizer 2
