@@ -52,12 +52,12 @@
     # Install firefox.
     firefox.enable = true;
 
-    # steam = {
-    #   enable = true;
-    #   remotePlay.openFirewall = true;
-    #   protontricks.enable = true;
-    #   localNetworkGameTransfers.openFirewall = true;
-    # };
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      protontricks.enable = true;
+      localNetworkGameTransfers.openFirewall = true;
+    };
 
     # allow executing appimages
     appimage = {
