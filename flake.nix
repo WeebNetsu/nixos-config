@@ -43,7 +43,7 @@
           system = "x86_64-linux";
           modules = [
             nix-flatpak.nixosModules.nix-flatpak
-            hyprland.nixosModules.default
+            # hyprland.nixosModules.default
             ./hosts/desktop/configuration.nix
           ];
           specialArgs = {
@@ -63,7 +63,7 @@
           system = "x86_64-linux";
           modules = [
             nix-flatpak.nixosModules.nix-flatpak
-            hyprland.nixosModules.default
+            # hyprland.nixosModules.default
             ./hosts/laptop/configuration.nix
           ];
           specialArgs = {
